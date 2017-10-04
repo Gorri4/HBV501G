@@ -2,9 +2,11 @@ package is.hi.byrjun.controller;
 
 public class SpurningaHandler {
 	
+	DatabaseManager dm = new DatabaseManager();
+	String[] choices = dm.getChoices(2);
 	//virkar
 	
-	Spurningar spurn1 = new Spurningar("Apple","Appelsína","Pera","Epli","Ananas","Epli");
+	Spurningar spurn1 = new Spurningar(dm.getQuestion(2),choices[0],choices[1],choices[2],choices[3],dm.getAnswer(2));
 	Spurningar spurn2 = new Spurningar("Orange","Pera","Appelsína","Vínber","Epli","Appelsína");
 	Spurningar spurn3 = new Spurningar("Man","Kona","Vatn","Strákur","Maður","Maður");
 	Spurningar spurn4 = new Spurningar("Boy","Kona","Vatn","Strákur","Maður","Strákur");
