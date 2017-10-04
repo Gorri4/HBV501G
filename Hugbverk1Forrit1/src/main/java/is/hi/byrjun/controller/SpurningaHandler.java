@@ -2,7 +2,8 @@ package is.hi.byrjun.controller;
 
 public class SpurningaHandler {
 	
-	//virkar
+	
+	
 	
 	Spurningar spurn1 = new Spurningar("Apple","Appelsína","Pera","Epli","Ananas","Epli");
 	Spurningar spurn2 = new Spurningar("Orange","Pera","Appelsína","Vínber","Epli","Appelsína");
