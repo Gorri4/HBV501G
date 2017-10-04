@@ -2,6 +2,7 @@ package is.hi.byrjun.controller;
 
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -153,7 +154,28 @@ public class DemoController {
     	model.addAttribute("valmog4", svarmoguleiki4Eydu);
     	return "demo/eyduFyllingarRangt";
     }
-    } 
+    }
+    
+    @RequestMapping("Login")
+    public String Login () {
+    	return "demo/Login";
+    }
+    
+    
+    @RequestMapping(value="/Login", method=RequestMethod.POST)
+    public String login (@RequestParam("loginInfo") List<String> params) throws Exception {
+    	
+    	String user = params.get(0);
+    	String password = params.get(1);
+    	
+    	LoginHandler login = new LoginHandler(user, password);
+    	
+    	if (login.checkLoginInfo()) {
+    		return "demo/Valmynd";
+    	}
+    	return "demo/LoginRangt";
+    	
+    }
     
     
 }
