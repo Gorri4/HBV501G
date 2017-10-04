@@ -11,9 +11,13 @@
     <meta charset="UTF-8">
 </head>
     <style>
+<<<<<<< HEAD
     html {
     font-family: Lato, helvetica, arial, sans-serif;
     }
+=======
+    
+>>>>>>> branch 'master' of https://github.com/Gorri4/HBV501G
     .button {
   width: 100%;
   max-width: 6em;
