@@ -13,6 +13,7 @@
 <h1>Krossar</h1>
 
 <form method="POST" action="eyduFyllingar">
+<p>Fill in the blanks</p>
 <p>${spurningin}</p>
 <br>
 
