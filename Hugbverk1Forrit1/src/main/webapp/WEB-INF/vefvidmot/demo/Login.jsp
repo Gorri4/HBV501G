@@ -3,10 +3,12 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<html lang="en">
+<html lang="is">
 
 <head>
     <title>Login</title>
+    <meta charset="UTF-8">
+</head>
     <style>
     .button {
   width: 100%;
