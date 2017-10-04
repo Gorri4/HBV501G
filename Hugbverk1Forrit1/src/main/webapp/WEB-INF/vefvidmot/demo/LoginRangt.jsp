@@ -8,9 +8,6 @@
 <head>
     <title>Login</title>
     <style>
-    html {
-    font-family: Lato, helvetica, arial, sans-serif;
-    }
     
     .button {
   width: 100%;
