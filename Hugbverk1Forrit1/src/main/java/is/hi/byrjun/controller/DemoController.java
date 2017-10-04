@@ -156,14 +156,20 @@ public class DemoController {
     }
     }
     
+    /**
+     * @return skilar Login síðuna
+     */
     @RequestMapping("Login")
     public String Login () {
     	return "demo/Login";
     }
     
-    
+    /**
+     * @param params Geymir notendanafnið og lykilorðið
+     * @return Skilar sömu síðu með villuskilaboð eða Valmyndarsíðuna
+     */
     @RequestMapping(value="/Login", method=RequestMethod.POST)
-    public String login (@RequestParam("loginInfo") List<String> params) throws Exception {
+    public String login (@RequestParam("loginInfo") List<String> params) {
     	
     	String user = params.get(0);
     	String password = params.get(1);
