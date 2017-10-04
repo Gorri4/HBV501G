@@ -6,6 +6,8 @@ public class SpurningaHandler {
 	DatabaseManager dm = new DatabaseManager();
 	String[] choices;
 
+	
+	//Eins og er eru eyðufyllingarnar harðkóðaðar en krossaspurningar sóttar úr gagnagrunn
 	Spurningar eyd1 = new Spurningar("Mér finnst gaman að ______ í sjónum","skrifa","synda","baka","lesa","synda");
 	Spurningar eyd2 = new Spurningar("Ég ______ á sjónvarpið","hoppa","borða","horfi","æli","horfi");
 	Spurningar eyd3 = new Spurningar("Karlinn ______ á tölvunni","hleypur","kveikir","rífur","syngur","kveikir");
@@ -19,7 +21,7 @@ public class SpurningaHandler {
 
 	
 	public SpurningaHandler() {
-		
+		//Smiðurinn nær í fylki sem inniheldur Spurningar
 		for(int i = 0; i < spurningaFylki.length ; i++) {
 			choices = dm.getChoices(i+1);
 			spurningaFylki[i] = new Spurningar(dm.getQuestion(i+1),choices[0],choices[1],choices[2],choices[3],dm.getAnswer(i+1));
@@ -27,10 +29,12 @@ public class SpurningaHandler {
 		System.out.println(spurningaFylki[0].getSpurning());
 	}
 	
+	//Fall sem sækir krossaspurningar
 	public Spurningar getSpurning(int i){
 		return spurningaFylki[i];
 	}
 	
+	//Fall sem sækir eyðufyllingar
 	public Spurningar getEydufyllingar(int i) {
 		return eyduFyllingar[i];
 	}

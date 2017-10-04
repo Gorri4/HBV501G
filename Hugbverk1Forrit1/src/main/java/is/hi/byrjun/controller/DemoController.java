@@ -2,6 +2,7 @@ package is.hi.byrjun.controller;
 
 import org.springframework.stereotype.Controller;
 
+
 import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir 
 public class DemoController {
-	//virkar já?asdfasdfasf
+	//Allar breytur sem eru skrifaðar inn í jsp skrárnar ásamt hlut úr SpurningaHandler
 	SpurningaHandler spurnhandl = new SpurningaHandler();
 	String spurningKrossar;
 	String svarmoguleiki1;
@@ -32,13 +33,15 @@ public class DemoController {
 	String svarmoguleiki4Eydu;
 	String rettSvarEydu;
 	
-	
+	//Teljari sem er notaður sem ID spurninga
 	int i = 0;
 	
 	DemoController(){
 		nySpurning();
 	}
 	
+	
+	//Fall sem nær í nýja spurningu
 	public void nySpurning(){
 	spurningKrossar = spurnhandl.getSpurning(i).getSpurning();
 	svarmoguleiki1 = spurnhandl.getSpurning(i).getSvarmog1();
@@ -55,6 +58,7 @@ public class DemoController {
 	rettSvarEydu = spurnhandl.getEydufyllingar(i).getrettSvar();
 	}
 	
+	//Sækir síðuna /krossar og setur inn gildi á viðeigandi stað
 	@RequestMapping("krossar")
     public String krossar (Model model) {
     	model.addAttribute("spurningin", spurningKrossar);
@@ -65,12 +69,13 @@ public class DemoController {
     	return "demo/krossar";
     }
 	
+	//Fall sem sækir valið gildi úr Forminu
     @RequestMapping(value="/krossar", method=RequestMethod.POST)
     public String hvader (@RequestParam(value="answers", required=false)
     String answers, ModelMap model) {
     	model.addAttribute("answers", answers);
     	if (answers.equals(rettSvar)) {  	
-    		
+    		//Ef svarið er rétt hækkar teljari um einn og nær í nýja spurningu 
     		i++;
     		nySpurning();
     		
@@ -82,6 +87,7 @@ public class DemoController {
         	
     		return "demo/krossar";
     	}
+    	//Ef rangt kemur sama spurning aftur
     	model.addAttribute("spurningin", spurningKrossar);
     	model.addAttribute("valmog1", svarmoguleiki1);
     	model.addAttribute("valmog2", svarmoguleiki2);
@@ -97,7 +103,7 @@ public class DemoController {
     	return "demo/Valmynd";
     }
     
-    
+    //Fall sem sér um val á æfingu
     @RequestMapping(value="/valmynd", method=RequestMethod.POST)
     public String hvadValmynd (@RequestParam(value="button", required=false)
     String button, ModelMap model) {
@@ -119,6 +125,7 @@ public class DemoController {
     	 return "demo/eyduFyllingar";
     }
     
+    //Fall nær í eyðufyllingasíðu
     @RequestMapping("eyduFyllinar")
     public String eyduFyllingar (Model model) {
     	model.addAttribute("spurningin", spurningEydu);
@@ -129,6 +136,7 @@ public class DemoController {
     	return "demo/eyduFyllingar";
     }
 	
+    //Fall sem sækir valið svar úr eyðufyllingum
     @RequestMapping(value="/eyduFyllingar", method=RequestMethod.POST)
     public String eyduFyll (@RequestParam(value="answers", required=false)
     String answers, ModelMap model) {
@@ -157,7 +165,7 @@ public class DemoController {
     }
     
     /**
-     * @return skilar Login s��una
+     * @return skilar Login s��una
      */
     @RequestMapping("Login")
     public String Login () {
@@ -165,9 +173,11 @@ public class DemoController {
     }
     
     /**
-     * @param params Geymir notendanafni� og lykilor�i�
-     * @return Skilar s�mu s��u me� villuskilabo� e�a Valmyndars��una
+     * @param params Geymir notendanafni� og lykilor�i�
+     * @return Skilar s�mu s��u me� villuskilabo� e�a Valmyndars��una
      */
+    
+    //Fall sem athugar hvort Login sé rétt
     @RequestMapping(value="/Login", method=RequestMethod.POST)
     public String login (@RequestParam("loginInfo") List<String> params) {
     	

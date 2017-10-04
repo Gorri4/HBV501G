@@ -12,7 +12,8 @@ public class DatabaseManager {
 	public DatabaseManager() {
 		
 	}
-
+	
+	//Fall sem nær tengingu við gagnagrunninn
 	private static Connection connect() {
         Connection conn = null;
         try {
@@ -24,6 +25,7 @@ public class DatabaseManager {
         return conn;          
     }
 	
+	//Fall sem sækir spurniningu með gefnu ID
 	 public String getQuestion(int ID) {
 	           
 	                String sql;
@@ -42,6 +44,7 @@ public class DatabaseManager {
 	        return question;
 	    }
 	 
+	 //Fall sem sækir valmöguleika spurningu með ID
 	 public String[] getChoices(int ID) {
          
 	         String sql;
@@ -62,6 +65,8 @@ public class DatabaseManager {
 	 return answers;
 	}
 	 
+	 
+	 //Fall sem nær í svarið við spurningu með ID
 	 public String getAnswer(int ID) {
          
 	         String sql;

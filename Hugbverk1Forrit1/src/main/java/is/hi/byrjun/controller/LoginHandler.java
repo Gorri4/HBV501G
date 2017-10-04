@@ -1,26 +1,26 @@
 package is.hi.byrjun.controller;
 
 /**
- * Klasi sem er notaður til að sjá hvort notendanafn
- * og lykilorð sé rétt.
+ * Klasi sem er notaï¿½ur til aï¿½ sjï¿½ hvort notendanafn
+ * og lykilorï¿½ sï¿½ rï¿½tt.
  * 
  * @author Helgi
  *
  */
 public class LoginHandler {
-
-	String[] users = {"Helgi", "Ómar", "Arnór", "Gummi"};
-	String[] passwords = {"Helgi1", "Ómar1", "Arnór1", "Gummi1"};
+	//HarÃ°kÃ³Ã°uÃ° gildi fyrir user-a og password Ã¾eirra
+	String[] users = {"Helgi", "ï¿½mar", "Arnï¿½r", "Gummi"};
+	String[] passwords = {"Helgi1", "ï¿½mar1", "Arnï¿½r1", "Gummi1"};
 	
 	String user;
 	String password;
 	
 	/**
-	 * Lætur global breyturnar fá notendanafnið og lykilorðið
-	 * sem var stimplað inn.
+	 * Lï¿½tur global breyturnar fï¿½ notendanafniï¿½ og lykilorï¿½iï¿½
+	 * sem var stimplaï¿½ inn.
 	 * 
-	 * @param user heldur utanum notendanafnið
-	 * @param password heldur utanum lykilorðið
+	 * @param user heldur utanum notendanafniï¿½
+	 * @param password heldur utanum lykilorï¿½iï¿½
 	 */
 	public LoginHandler(String user, String password) {
 		this.user = user;
@@ -28,9 +28,9 @@ public class LoginHandler {
 	}
 	
 	/**
-	 * Kíkir hvort notendanafnið og passwordið passar.
+	 * Kï¿½kir hvort notendanafniï¿½ og passwordiï¿½ passar.
 	 * 
-	 * @return true ef notendanafn og lykilorð er rétt, false annars
+	 * @return true ef notendanafn og lykilorï¿½ er rï¿½tt, false annars
 	 */
 	public boolean checkLoginInfo() {
 		for (int i = 0; i < 4; i++) {
