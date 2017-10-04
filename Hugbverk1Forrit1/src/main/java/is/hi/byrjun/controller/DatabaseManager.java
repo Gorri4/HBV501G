@@ -16,7 +16,7 @@ public class DatabaseManager {
 	private static Connection connect() {
         Connection conn = null;
         try {
-            String url = "jdbc:sqlite:src/main/resources/database.db";
+            String url = "jdbc:sqlite:src/main/resources/database2.db";
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
