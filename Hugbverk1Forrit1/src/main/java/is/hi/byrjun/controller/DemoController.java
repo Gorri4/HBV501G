@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir 
 public class DemoController {
-	
+	//virkar já?
 	SpurningaHandler spurnhandl = new SpurningaHandler();
 	String spurningKrossar;
 	String svarmoguleiki1;
