@@ -1,0 +1,17 @@
+
+table.kennarar {
+    border: 1px black solid;
+}
+
+.kennarar td {
+    padding: 15px;
+    text-align: left;
+}
+
+table.kennarar tr:nth-child(even) {
+    background-color: antiquewhite;
+}
+
+table.kennarar tr:nth-child(odd) {
+    background-color: azure;
+}
