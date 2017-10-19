@@ -27,10 +27,7 @@ public class SpurningaServiceImp implements SpurningaService {
 		
 	}
 
-	@Override
-	public List<Spurningar> allirKennarar() {
-		return null; // spurningRep.findAll();
-	}
+
 
 	@Override
 	public Spurningar save(Spurningar spurningar) {
@@ -40,6 +37,11 @@ public class SpurningaServiceImp implements SpurningaService {
 	@Override
 	public List<Spurningar> finnaAlla3Stafi() {
 		return null; // spurningRep.findAllWithNameLongerThan3Chars();
+	}
+
+	@Override
+	public List<Spurningar> allarSpurningar() {
+		return spurningRep.findAll();
 	}
 
 }

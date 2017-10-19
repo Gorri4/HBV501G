@@ -12,6 +12,7 @@ public class Spurningar {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//breta
 	private int id;
 	private String spurning;
 	private String svarmog1;
@@ -30,6 +31,7 @@ public class Spurningar {
 		this.svarmog4 = svarmog4;
 		this.rettSvar = rettSvar;
 	}
+	
 	//föll sem ná í breytur hluta af klasanum
 	public String getSpurning(){
 		return spurning;

@@ -26,7 +26,7 @@ public interface SpurningaService {
      *
      * @return listi af kennurum
      */
-    public List<Spurningar> allirKennarar();
+    public List<Spurningar> allarSpurningar();
     
      public Spurningar save(Spurningar spurningar);
           
