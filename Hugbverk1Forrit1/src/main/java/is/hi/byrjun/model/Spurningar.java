@@ -12,6 +12,7 @@ public class Spurningar {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//breta
 	private int id;
 	private String spurning;
 	private String svarmog1;
