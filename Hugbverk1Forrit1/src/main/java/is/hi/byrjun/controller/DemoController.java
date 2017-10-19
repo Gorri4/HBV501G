@@ -1,5 +1,6 @@
 package is.hi.byrjun.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 //import java.util.ArrayList;
 import org.springframework.ui.Model;
@@ -55,7 +56,7 @@ public class DemoController {
 	
 	//Fall sem nær í nýja spurningu
 	public void nySpurning(){
-		//List<Spurningar> spurningalisti = spurningaService.allirKennarar();
+		//List<Spurningar> spurningalisti = spurningaService.allarSpurningar();
 		//String x = spurningalisti.get(0).getSpurning();
 		//System.out.println(x);
 	//spurningKrossar = spurnhandl.getSpurning(i).getSpurning();
@@ -80,8 +81,8 @@ public class DemoController {
 		System.out.println("Adding question");
 		Spurningar spurning = new Spurningar("sdf","sdfsdf","sdfsdf","sdfsd","sdf","sdf");
 		spurningaService.addSpurning(spurning);
-		List<Spurningar> spurningalisti = spurningaService.allarSpurningar();
-		spurningKrossar = spurningalisti.get(1).getSpurning();
+		ArrayList<Spurningar> spurningalisti = (ArrayList)spurningaService.allarSpurningar();
+		//spurningKrossar = spurningalisti.get(1).getSpurning();
 		System.out.println(spurningKrossar);
 	//	svarmoguleiki1 = spurningalisti.get(i).getSvarmog1();
 	//	svarmoguleiki2 = spurningalisti.get(i).getSvarmog2();
