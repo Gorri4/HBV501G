@@ -79,15 +79,17 @@ public class DemoController {
 	@RequestMapping("krossar")
     public String krossar (Model model) {
 		System.out.println("Adding question");
-		Spurningar spurning = new Spurningar("s1df","sdfsdf","sdfsdf","sdfsd","sdf","sdf");
+		Spurningar spurning = new Spurningar("spurning","valmog1","valmog2","valmog3","valmog4","rettsvar");
 		spurningaService.addSpurning(spurning);
-		List<Spurningar> spurningalisti = spurningaService.allarSpurningar();
-		//spurningKrossar = spurningalisti.get(1).getSpurning();
-		System.out.println(spurningKrossar);
-	//	svarmoguleiki1 = spurningalisti.get(i).getSvarmog1();
-	//	svarmoguleiki2 = spurningalisti.get(i).getSvarmog2();
-	//	svarmoguleiki3 = spurningalisti.get(i).getSvarmog3();
-	//	svarmoguleiki4 = spurningalisti.get(i).getSvarmog4();
+		ArrayList<Spurningar> spurningalisti;
+		spurningalisti = (ArrayList)spurningaService.allarSpurningar();
+		spurningKrossar = spurningalisti.get(i).getSpurning();	
+		svarmoguleiki1 = spurningalisti.get(i).getSvarmog1();
+		svarmoguleiki2 = spurningalisti.get(i).getSvarmog2();
+		svarmoguleiki3 = spurningalisti.get(i).getSvarmog3();
+		svarmoguleiki4 = spurningalisti.get(i).getSvarmog4();
+		rettSvar = spurningalisti.get(i).getrettSvar();
+		System.out.println("réttSvar" + rettSvar);
     	model.addAttribute("spurningin", spurningKrossar);
     	model.addAttribute("valmog1", svarmoguleiki1);
     	model.addAttribute("valmog2", svarmoguleiki2);
