@@ -32,6 +32,10 @@ public class Spurningar {
 		this.rettSvar = rettSvar;
 	}
 	
+	public Spurningar(){
+		
+	}
+	
 	//föll sem ná í breytur hluta af klasanum
 	public String getSpurning(){
 		return spurning;

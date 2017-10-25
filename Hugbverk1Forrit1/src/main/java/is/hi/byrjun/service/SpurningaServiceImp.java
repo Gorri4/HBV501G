@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class SpurningaServiceImp implements SpurningaService {
 
 	
-	 // Tenging yfir í safn af kennurum 
+	 // Tenging yfir í safn af spurningum 
     @Autowired
     SpurningaRepository spurningRep;
 

@@ -1,6 +1,7 @@
 package is.hi.byrjun.controller;
 
 import java.util.ArrayList;
+
 import java.util.List;
 //import java.util.ArrayList;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import is.hi.byrjun.model.Spurningar;
+import is.hi.byrjun.service.LoginService;
 import is.hi.byrjun.service.SpurningaService;
  /**
  * Byrjunarcontroller sem stýrir hvað er gert þegar notandi eða viðmót
@@ -28,11 +30,6 @@ public class DemoController {
     SpurningaService spurningaService;
 
 
-    @RequestMapping("/notandi")
-    public String notandi(Model model) {
-        model.addAttribute("nafn", "Ebba Þóra");
-        return "demo/synaNotandi";
-    }
 	
     String spurningKrossar;
 	String svarmoguleiki1;
@@ -51,36 +48,26 @@ public class DemoController {
 	int i = 0;
 	
 	DemoController(){
-		nySpurning();
+		
 	}
 	
 	//Fall sem nær í nýja spurningu
 	public void nySpurning(){
-		//List<Spurningar> spurningalisti = spurningaService.allarSpurningar();
-		//String x = spurningalisti.get(0).getSpurning();
-		//System.out.println(x);
-	//spurningKrossar = spurnhandl.getSpurning(i).getSpurning();
-	//svarmoguleiki1 = spurnhandl.getSpurning(i).getSvarmog1();
-	//svarmoguleiki2 = spurnhandl.getSpurning(i).getSvarmog2();
-	//svarmoguleiki3 = spurnhandl.getSpurning(i).getSvarmog3();
-	//svarmoguleiki4 = spurnhandl.getSpurning(i).getSvarmog4();
-	//rettSvar = spurnhandl.getSpurning(i).getrettSvar();
-	
-	//spurningEydu = spurnhandl.getEydufyllingar(i).getSpurning();
-	//svarmoguleiki1Eydu = spurnhandl.getEydufyllingar(i).getSvarmog1();
-	//svarmoguleiki2Eydu = spurnhandl.getEydufyllingar(i).getSvarmog2();
-	//svarmoguleiki3Eydu = spurnhandl.getEydufyllingar(i).getSvarmog3();
-	//svarmoguleiki4Eydu = spurnhandl.getEydufyllingar(i).getSvarmog4();
-	//rettSvarEydu = spurnhandl.getEydufyllingar(i).getrettSvar();
-	
+
+		ArrayList<Spurningar> spurningalisti;
+		spurningalisti = (ArrayList)spurningaService.allarSpurningar();
+		spurningKrossar = spurningalisti.get(i).getSpurning();	
+		svarmoguleiki1 = spurningalisti.get(i).getSvarmog1();
+		svarmoguleiki2 = spurningalisti.get(i).getSvarmog2();
+		svarmoguleiki3 = spurningalisti.get(i).getSvarmog3();
+		svarmoguleiki4 = spurningalisti.get(i).getSvarmog4();
+		rettSvar = spurningalisti.get(i).getrettSvar();
+		
 	}
 	
 	//Sækir síðuna /krossar og setur inn gildi á viðeigandi stað
 	@RequestMapping("krossar")
     public String krossar (Model model) {
-		System.out.println("Adding question");
-		Spurningar spurning = new Spurningar("spurning","valmog1","valmog2","valmog3","valmog4","rettsvar");
-		spurningaService.addSpurning(spurning);
 		ArrayList<Spurningar> spurningalisti;
 		spurningalisti = (ArrayList)spurningaService.allarSpurningar();
 		spurningKrossar = spurningalisti.get(i).getSpurning();	
@@ -194,35 +181,6 @@ public class DemoController {
     	}
     }
     
-    /*
-     * @return skilar Login s��una
-     */
-	
-    @RequestMapping("Login")
-    public String Login () {
-    	return "demo/Login";
-    }
-    
-    /**
-     * @param params Geymir notendanafni� og lykilor�i�
-     * @return Skilar s�mu s��u me� villuskilabo� e�a Valmyndars��una
-     */
-    
-    //Fall sem athugar hvort Login sé rétt
-	
-    @RequestMapping(value="/Login", method=RequestMethod.POST)
-    public String login (@RequestParam("loginInfo") List<String> params) {
-    	
-    	String user = params.get(0);
-    	String password = params.get(1);
-    	
-    	LoginHandler login = new LoginHandler(user, password);
-    	
-    	if (login.checkLoginInfo()) {
-    		return "demo/Valmynd";
-    	}
-    	return "demo/LoginRangt";
-    	
-    }
+
     
 }
