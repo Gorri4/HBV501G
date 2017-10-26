@@ -2,7 +2,6 @@ package is.hi.byrjun.controller;
 
 import java.util.ArrayList;
 
-import java.util.List;
 //import java.util.ArrayList;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import is.hi.byrjun.model.Eydufyllingar;
 import is.hi.byrjun.model.Spurningar;
-import is.hi.byrjun.service.LoginService;
+import is.hi.byrjun.service.EydufyllingaService;
 import is.hi.byrjun.service.SpurningaService;
  /**
  * Byrjunarcontroller sem stýrir hvað er gert þegar notandi eða viðmót
@@ -28,8 +28,8 @@ public class DemoController {
     // Tenging yfir í þjónustu klasa fyrir góðan daginn forritið 
 	@Autowired
     SpurningaService spurningaService;
-
-
+	@Autowired
+	EydufyllingaService eydufyllingaService;
 	
     String spurningKrossar;
 	String svarmoguleiki1;
@@ -46,6 +46,7 @@ public class DemoController {
 	
 	//Teljari sem er notaður sem ID spurninga
 	int i = 0;
+	int a = 0;
 	
 	DemoController(){
 		
@@ -62,6 +63,15 @@ public class DemoController {
 		svarmoguleiki3 = spurningalisti.get(i).getSvarmog3();
 		svarmoguleiki4 = spurningalisti.get(i).getSvarmog4();
 		rettSvar = spurningalisti.get(i).getrettSvar();
+		
+		ArrayList<Eydufyllingar> eydufyllingaListi;
+		eydufyllingaListi = (ArrayList)eydufyllingaService.allarEydufyllingar();
+		spurningEydu = eydufyllingaListi.get(a).getSpurning();
+		svarmoguleiki1Eydu = eydufyllingaListi.get(a).getSvarmog1();
+		svarmoguleiki2Eydu = eydufyllingaListi.get(a).getSvarmog2();
+		svarmoguleiki3Eydu = eydufyllingaListi.get(a).getSvarmog3();
+		svarmoguleiki4Eydu = eydufyllingaListi.get(a).getSvarmog4();
+		rettSvarEydu = eydufyllingaListi.get(a).getrettSvar();
 		
 	}
 	
@@ -126,6 +136,7 @@ public class DemoController {
     String button, ModelMap model) {
     	model.addAttribute("button", button);
     	if(button.equals("button1")){
+    			nySpurning();
     	    	model.addAttribute("spurningin", spurningKrossar);
     	    	model.addAttribute("valmog1", svarmoguleiki1);
     	    	model.addAttribute("valmog2", svarmoguleiki2);
@@ -134,6 +145,7 @@ public class DemoController {
     	    	return "demo/krossar";
     	}
     	else
+    	nySpurning();
     	model.addAttribute("spurningin", spurningEydu);
     	model.addAttribute("valmog1", svarmoguleiki1Eydu);
     	model.addAttribute("valmog2", svarmoguleiki2Eydu);
@@ -160,7 +172,7 @@ public class DemoController {
     	model.addAttribute("answers", answers);
     	if (answers.equals(rettSvarEydu)) {  	
     		
-    		i++;
+    		a++;
     		nySpurning();
     		
     		model.addAttribute("spurningin", spurningEydu);
@@ -180,6 +192,7 @@ public class DemoController {
     	return "demo/eyduFyllingarRangt";
     	}
     }
+    
     
 
     
