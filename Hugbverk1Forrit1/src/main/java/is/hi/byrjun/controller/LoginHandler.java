@@ -78,5 +78,11 @@ public class LoginHandler {
 			return false;	
 	}
 	
+	public String addNotandi(String notandi, String password){
+		Login notandinn = new Login(notandi,password);
+		loginService.addNotandi(notandinn);
+		return "demo/Login";
+	}
+	
 }
 

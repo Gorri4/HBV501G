@@ -23,7 +23,7 @@ import is.hi.byrjun.service.SpurningaService;
 
 @Controller
 @RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir 
-public class DemoController {
+public class SpurningaHandler {
 	
     // Tenging yfir í þjónustu klasa fyrir góðan daginn forritið 
 	@Autowired
@@ -48,7 +48,7 @@ public class DemoController {
 	int i = 0;
 	int a = 0;
 	
-	DemoController(){
+	SpurningaHandler(){
 		
 	}
 	
