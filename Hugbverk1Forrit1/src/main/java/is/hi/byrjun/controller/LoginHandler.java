@@ -52,6 +52,7 @@ public class LoginHandler {
     	}
     		return "demo/LoginRangt";	
     }
+    
 	
 	/**
 	 * K�kir hvort notendanafni� og passwordi� passar.
