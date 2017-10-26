@@ -20,6 +20,7 @@ import is.hi.byrjun.service.SpurningaService;
  * @author Helgi
  *
  */
+
 @Controller
 @RequestMapping("/demo")
 public class LoginHandler {
@@ -29,9 +30,6 @@ public class LoginHandler {
     LoginService loginService;
 	
 	//Harðkóðuð gildi fyrir user-a og password þeirra
-	String[] users;
-	String[] passwords;
-	
     
 	@RequestMapping("Login")
     public String Login () {
@@ -43,23 +41,15 @@ public class LoginHandler {
     //Fall sem athugar hvort Login sé rétt	
     @RequestMapping(value="/Login", method=RequestMethod.POST)
     public String login (@RequestParam("loginInfo") List<String> params) {
-    	
+    	System.out.println("virkarbyrjun");
     	String user = params.get(0);
     	String password = params.get(1);
-    	Login notandi = new Login("Gummi","1234");
-    	loginService.addNotandi(notandi);
-    	System.out.println("Notanda batt vid");
-    	//ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
-    	//for(int s = 0; s < notendur.size() ; s++){
-		//	users[s] = notendur.get(s).getUser();
-		//	passwords[s] = notendur.get(s).getPassword();
-		//}
-    	//
-    	//if (checkLoginInfo(user,password)) {
-    	//	return "demo/Valmynd";
-    	//}
-    	return "demo/LoginRangt";
+    	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
     	
+    	if (checkLoginInfo(notendur, user, password)) {
+    		return "demo/Valmynd";
+    	}
+    		return "demo/LoginRangt";	
     }
 	
 	/**
@@ -67,13 +57,25 @@ public class LoginHandler {
 	 * 
 	 * @return true ef notendanafn og lykilor� er r�tt, false annars
 	 */
-	
-	public boolean checkLoginInfo(String user, String password) {
-		for (int i = 0; i < 4; i++) {
-			if (user.equals(users[i]) && password.equals(passwords[i]))
-				return true;
+    
+	public boolean checkLoginInfo(ArrayList<Login> notendur, String userInput, String passwordInput) {
+		boolean userinnBool = false;
+		boolean passwordBool = false;
+		System.out.println("fer inn í fall");
+		for (Login s: notendur) {
+			if (userInput.equals(s.getUser())){
+				userinnBool = true;
+			}
 		}
-		return false;
+		for(Login s: notendur) {
+			if (passwordInput.equals(s.getPassword())){
+				passwordBool = true;
+			}
+		}
+		if(userinnBool && passwordBool){
+			return true;
+		}
+			return false;	
 	}
 	
 }

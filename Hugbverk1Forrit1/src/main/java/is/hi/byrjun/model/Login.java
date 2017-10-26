@@ -13,14 +13,14 @@ public class Login {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//breta
-	private int id;
-	private String user;
+	private float id;
+	private String userinn;
 	private String password;
 
 	
 	//Smiður fyrir spurningaklasann
-	public Login(String user, String password) {
-		this.user = user;
+	public Login(String userinn, String password) {
+		this.userinn = userinn;
 		this.password = password;
 	}
 	
@@ -30,7 +30,7 @@ public class Login {
 	
 	//föll sem ná í breytur hluta af klasanum
 	public String getUser(){
-		return user;
+		return userinn;
 	}
 	
 	public String getPassword(){
