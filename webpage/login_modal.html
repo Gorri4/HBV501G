@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<title>Icelandic for Beginners</title>
+<meta charset="UTF-8">
+<meta name="description" content="Learn Icelandic for Beginners">
+<meta name="keywords"
+	content="Icelandic, Beginners' Icelandic, Learn Icelandic">
+<meta name="author" content="Arnór Kristmundsson">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="login.css">
+<body>
+
+	<h2>Login</h2>
+
+	 <button
+    onclick="document.getElementById('modalLoginForm').style.display='block'"
+    class="login getLogin" id="getLogin">Login</button>
+
+	<div id="modalLoginForm" class="modal">
+
+		<form method="POST" class="modal-content animate" action="/demo/Login">
+			<div class="close-btn-container">
+				<span
+					onclick="document.getElementById('modalLoginForm').style.display='none'"
+					class="close" title="Close Modal">&times;</span>
+			</div>
+
+			<div class="formbody">
+				<label>Username</label>
+        <input type="text" placeholder="Enter Username" name="loginInfo" required>
+        <label>Password</label>
+				<input type="password" placeholder="Enter Password" name="loginInfo" required>
+				<button type="submit" class="login submitLogin">Login</button>
+				<input type="checkbox" checked="checked"> Remember me
+			</div>
+
+			<div class="formfooter">
+				<a href="login_modal.html" class="button cancelbtn">Cancel</a>
+        <span class="password">Forgot <a href="#">password?</a></span>
+			</div>
+		</form>
+	</div>
+
+	<script> src="modal.js"</script>
+
+</body>
+</html>
