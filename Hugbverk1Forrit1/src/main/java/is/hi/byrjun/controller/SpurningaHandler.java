@@ -16,7 +16,8 @@ import is.hi.byrjun.model.Eydufyllingar;
 import is.hi.byrjun.model.Spurningar;
 import is.hi.byrjun.service.EydufyllingaService;
 import is.hi.byrjun.service.SpurningaService;
- /**
+ 
+/**
  * Byrjunarcontroller sem stýrir hvað er gert þegar notandi eða viðmót
  * setur inn skipun 
  */
