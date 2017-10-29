@@ -6,31 +6,72 @@
 <meta name="keywords"
 	content="Icelandic, Beginners' Icelandic, Learn Icelandic">
 <meta name="author" content="Arnór Kristmundsson">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	crossorigin="anonymous">
+<!-- Our Stylesheet -->
 <link rel="stylesheet" href="style.css">
 <body>
 
 	<div
-		class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-		<div class="w3-display-topleft w3-padding-large w3-xlarge">
-			LOGO</div>
-		<div class="w3-display-middle">
-			<h1 class="w3-jumbo w3-animate-top">LEARN ICELANDIC</h1>
-			<hr class="w3-border-grey" style="margin: auto; width: 40%">
-			<p class="w3-large w3-center">
-				<a class="w3-button" href="https://notendur.hi.is/ebba/index-english.html"
-					target="_blank">Log in</a>
-			</p>
-			<p class="w3-large w3-center">
-				<a class="w3-button" href="https://notendur.hi.is/ebba/index-english.html"
-					target="_blank">Sign up</a>
-			</p>
-		</div>
-		<div class="w3-display-bottomleft w3-padding-large">
-			Powered by <a href="https://notendur.hi.is/ebba/index-english.html"
-				target="_blank">Ebba</a>
+		class="bgimg display-container animate-opacity">
+		<div class="display-middle">
+			<h1 class="animate-top text-white">LEARN ICELANDIC</h1>
+			<hr class="w3-border-grey">
+			<!--p><a class="button" href="login.html"target="_blank">Log in</a></p>
+			<p><a class="button" href="signup.html"target="_blank">Sign up</a></p-->
+			<button class="openModal" id="openModalLoginForm">Login</button>
+			<!--button class="openModal" id="openModalSignupForm">Signup</button-->
 		</div>
 	</div>
+	<div class="modalForm" id="modalLoginForm">
+		<form method="POST" class="modal-content animate" action="/demo/Login">
+			<div class="closeModal-container">
+				<span class="closeModal" id="closeModalLoginForm" title="Close Modal Login Form">&times;</span>
+			</div>
 
+			<div class="formbody">
+				<label>Username</label>
+				<input type="text" placeholder="Enter Username" name="loginInfo" required>
+				<label>Password</label>
+				<input type="password" placeholder="Enter Password" name="loginInfo" required>
+				<button type="submit" class="login submitLogin">Login</button>
+				<input type="checkbox" checked="checked">
+				Remember me
+			</div>
+
+			<div class="formfooter">
+				<a href="login_modal.html" class="cancel button">Cancel</a> <span
+				class="password">Forgot <a href="#">password?</a></span>
+			</div>
+		</form>
+	</div>
+
+	<div class="modalForm" id="modalSignupForm">
+		<form method="POST" class="modal-content animate" action="/demo/Signup">
+			<div class="closeModal-container">
+				<span class="closeModal" id="closeModalSignupForm" title="Close Modal Login Form">&times;</span>
+			</div>
+
+			<div class="formbody">
+				<label>Username</label>
+				<input type="text" placeholder="Enter Username" name="loginInfo" required>
+				<label>Password</label>
+				<input type="password" placeholder="Enter Password" name="loginInfo" required>
+				<button type="submit" class="login submitLogin">Login</button>
+				<input type="checkbox" checked="checked">
+				Remember me
+			</div>
+
+			<div class="formfooter">
+				<a href="login_modal.html" class="cancel button">Cancel</a> <span
+				class="password">Forgot <a href="#">password?</a></span>
+			</div>
+		</form>
+	</div>
+	<script src="modal.js"></script>
 </body>
 </html>
