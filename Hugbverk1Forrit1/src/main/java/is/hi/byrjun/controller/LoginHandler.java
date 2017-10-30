@@ -86,7 +86,23 @@ public class LoginHandler {
 		return "demo/Login";
 	}
 
-
+    @RequestMapping("FrontPage")
+    public String Valmynd () {
+    	return "demo/FrontPage";
+    }
+    
+    //Fall sem sér um val á æfingu
+    @RequestMapping(value="/FrontPage", method=RequestMethod.POST)
+    public String hvadValmynd (@RequestParam(value="button", required=false)
+    String button, ModelMap model) {
+    	model.addAttribute("button", button);
+    	if(button.equals("button1")){
+    	    	return "demo/Login";
+    	}
+    	else
+    	 return "demo/SignUp";
+    }
+	
 	
 }
 
