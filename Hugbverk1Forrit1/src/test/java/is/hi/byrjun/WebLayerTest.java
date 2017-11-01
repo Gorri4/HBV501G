@@ -1,7 +1,7 @@
 package is.hi.byrjun;
 
 
-import is.hi.byrjun.controller.DemoController;
+import is.hi.byrjun.controller.SpurningaHandler;
 import static javax.management.Query.value;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 /**
  *
- * @author Ebba Þóra Hvannberg
+ * @author Arnór Kristmundsson
  * @date október 2017 
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  * 
@@ -36,7 +36,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  *  Aðeins veflagið er keyrt upp en ekki allur "context"-inn
  *  Getum beðið um að keyra bara upp KennariController klasann 
  */
-@WebMvcTest (DemoController.class)                                                  
+@WebMvcTest (SpurningaHandler.class)                                                  
 public class WebLayerTest {
     
         // Þjónninn ekki keyrður upp 
@@ -44,17 +44,17 @@ public class WebLayerTest {
         private MockMvc mockMvc;
         
         /**
-         * Aðferð til að athuga hvort virkar að senda HttpRequest á listiKennari
-         * og fá til baka listiKennara.html síðuna 
+         * Aðferð til að athuga hvort virkar að senda HttpRequest á krossar
+         * og fá til baka krossar.jsp síðuna 
          */
 	@Test 
         public void demoProf() throws Exception {
-        this.mockMvc.perform(get("/demo/page"))                
+        this.mockMvc.perform(get("/demo/krossar"))                
                           .andDo(print()).andExpect(status().isOk())
     //            .andExpect(content().string(containsString("Sýnidæmi")));
         // JSP prófa að nafnið á viðmótsskránni sé demo/demo 
         // Ekki hægt að prófa innihald á JSP "renderer" 
-      .andExpect(view().name("demo/demo"));
+      .andExpect(view().name("demo/krossar"));
 
     }
 

@@ -11,7 +11,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 /**
  *
- * @author Ebba Þóra Hvannberg
+ * @author Arnór Kristmundsson
  * @date október 2017 
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  * 
@@ -32,14 +32,13 @@ public class HttpRequestTest {
          
         /**
          * Aðferð til að athuga hvort virkar að senda HttpRequest á heimaslóðina og
-         * fá til baka síðu sem inniheldur Klukkan 
-        
+         * fá til baka síðu sem inniheldur Klukkan         
          * @throws java.lang.Exception
          */
 	@Test
         public void demoProf() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/demo/page",
-                String.class)).contains("Sýnidæmi");
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/demo/krossar",
+                String.class)).contains("Krossar");
     }
 
 }
