@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.*;
+
 
 @Entity
 @Table (name="Login")
@@ -14,7 +16,9 @@ public class Login {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//breta
 	private float id;
+	@NotNull
 	private String userinn;
+	@NotNull
 	private String password;
 
 	
