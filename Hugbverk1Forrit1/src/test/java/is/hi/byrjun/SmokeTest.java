@@ -1,6 +1,6 @@
 package is.hi.byrjun;
 
-import is.hi.byrjun.controller.DemoController;
+import is.hi.byrjun.controller.SpurningaHandler;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,11 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 /**
  *
- * @author Ebba Þóra Hvannberg
- * @date október 2017 
+ * @author Arnór Kristmundsson
+ * @date október 2017
  * HBV501G Hugbúnaðarverkefni 1 Háskóli Íslands
  * 
- * Prófunarklasi sem athugar hvort KennariController keyrir 
+ * Prófunarklasi sem athugar hvort SpurningaHandler keyrir 
 */
 
 @RunWith(SpringRunner.class)
@@ -21,16 +21,16 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class SmokeTest {
     
         @Autowired 
-        DemoController demoController;
+        SpurningaHandler spurningaHandler;
 
         /**
-         * Aðferð til að athuga hvort KennariController hlutur hefur verið búinn til 
+         * Aðferð til að athuga hvort SpurningaHandler hlutur hefur verið búinn til 
          */
         
 	@Test
 	public void contextLoads() {
         
-                   assertThat(demoController).isNotNull();
+                   assertThat(spurningaHandler).isNotNull();
 	}
 
 }
