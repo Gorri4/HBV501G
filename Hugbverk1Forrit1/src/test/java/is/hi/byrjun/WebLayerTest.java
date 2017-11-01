@@ -48,13 +48,28 @@ public class WebLayerTest {
          * og fá til baka krossar.jsp síðuna 
          */
 	@Test 
-        public void demoProf() throws Exception {
+        public void krossaProf() throws Exception {
         this.mockMvc.perform(get("/demo/krossar"))                
                           .andDo(print()).andExpect(status().isOk())
     //            .andExpect(content().string(containsString("Sýnidæmi")));
         // JSP prófa að nafnið á viðmótsskránni sé demo/demo 
         // Ekki hægt að prófa innihald á JSP "renderer" 
       .andExpect(view().name("demo/krossar"));
+
+    }
+
+        /**
+         * Aðferð til að athuga hvort virkar að senda HttpRequest á FrontPage
+         * og fá til baka FrontPage.jsp síðuna 
+         */
+      @Test 
+        public void loginProf() throws Exception {
+        this.mockMvc.perform(get("/demo/FrontPage"))                
+                          .andDo(print()).andExpect(status().isOk())
+    //            .andExpect(content().string(containsString("Sýnidæmi")));
+        // JSP prófa að nafnið á viðmótsskránni sé demo/demo 
+        // Ekki hægt að prófa innihald á JSP "renderer" 
+      .andExpect(view().name("demo/FrontPage"));
 
     }
 
