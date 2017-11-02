@@ -88,7 +88,7 @@ public class LoginHandler {
 
     @RequestMapping("FrontPage")
     public String Valmynd () {
-    	return "demo/FrontPage";
+    	return "demo/Login";
     }
     
     //Fall sem sér um val á æfingu
