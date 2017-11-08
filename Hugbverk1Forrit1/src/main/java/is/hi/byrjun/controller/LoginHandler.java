@@ -26,7 +26,6 @@ import is.hi.byrjun.service.SpurningaService;
 @RequestMapping("/demo")
 public class LoginHandler {
 	
-	
 	@Autowired
     LoginService loginService;
 	
@@ -42,7 +41,6 @@ public class LoginHandler {
     //Fall sem athugar hvort Login sé rétt	
     @RequestMapping(value="/Login", method=RequestMethod.POST)
     public String login (@RequestParam("loginInfo") List<String> params) {
-    	System.out.println("virkarbyrjun");
     	String user = params.get(0);
     	String password = params.get(1);
     	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
@@ -88,7 +86,7 @@ public class LoginHandler {
 
     @RequestMapping("FrontPage")
     public String Valmynd () {
-    	return "demo/Login";
+    	return "demo/FrontPage";
     }
     
     //Fall sem sér um val á æfingu
