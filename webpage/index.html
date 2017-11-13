@@ -1,147 +1,127 @@
 <!DOCTYPE html>
+
+<!--%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%-->
+
 <html>
-	<title>Icelandic for Beginners</title>
-	<meta charset="UTF-8">
-	<meta name="description" content="Learn Icelandic for Beginners">
-	<meta name="keywords"
-		content="Icelandic, Beginners' Icelandic, Learn Icelandic">
-	<meta name="author" content="Arnór Kristmundsson">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="style.css">
-	<body>
-		<div
-			class="bgimg display-container animate-opacity">
-			<div class="display-middle">
-				<h1 class="animate-top text-white">LEARN ICELANDIC</h1>
-				<hr>
-				<button class="openModal" id="openLoginForm">Login</button>
-				<button class="openModal" id="openSignupForm">Signup</button>
+<title>Icelandic for Beginners</title>
+<meta charset="UTF-8">
+<meta name="description" content="Learn Icelandic for Beginners">
+<meta name="keywords"
+	content="Icelandic, Beginners' Icelandic, Learn Icelandic">
+<meta name="author" content="Arnór Kristmundsson">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="style.css">
+<body>
+	<div class="bgimg display-container animate-opacity">
+		<div class="display-middle">
+			<h1 class="animate-top text-white">LEARN ICELANDIC</h1>
+			<hr>
+			<button class="openModal" id="openLoginForm">Login</button>
+			<button class="openModal" id="openSignupForm">Signup</button>
+		</div>
+	</div>
+
+	<div class="modalForm" id="loginForm">
+		<form method="POST" class="modal-content animate" action="/demo/Login">
+			<div class="closeModal-container">
+				<span class="closeModal" id="closeLoginForm"
+					title="Close Login Form"> &times; </span>
 			</div>
-		</div>
 
-		<div class="modalForm" id="loginForm">
-			<form method="POST" class="modal-content animate" action="/demo/Login">
-				<div class="closeModal-container">
-					<span class="closeModal" id="closeLoginForm" title="Close Login Form">
-						&times;
-					</span>
-				</div>
+			<div class="formbody">
+				<label>Username</label>
+				<input type="text" placeholder="Enter Username" name="loginInfo" required>
+				<label>Password</label>
+				<input type="password" placeholder="Enter Password" name="loginInfo" required>
+				<button type="submit" class="submit">Login</button>
+				<input type="checkbox" checked="checked">
+				Remember me
+			</div>
 
-				<div class="formbody">
-					<label>Username</label>
-					<input type="text" placeholder="Enter Username" name="loginInfo" required>
-					<label>Password</label>
-					<input type="password" placeholder="Enter Password" name="loginInfo" required>
-					<button type="submit" class="submit">Login</button>
-					<input type="checkbox" checked="checked">
-					Remember me
-				</div>
+			<div class="formfooter">
+				<button class="cancel" id="cancelLogin">Cancel</button>
+				<span class="password">Forgot <a href="#">password?</a></span>
+			</div>
+		</form>
+	</div>
 
-				<div class="formfooter">
-					<button class="cancel" id="cancelLogin">Cancel</button>
-					<span class="password">Forgot <a href="#">password?</a></span>
-				</div>
-			</form>
-		</div>
+	<div class="modalForm" id="signupForm">
+		<form method="POST" class="modal-content animate" action="/demo/Signup">
+			<div class="closeModal-container">
+				<span class="closeModal" id="closeSignupForm" title="Close Signup Form"> 
+					&times;
+				</span>
+			</div>
 
-		<div class="modalForm" id="signupForm">
-			<form method="POST" class="modal-content animate" action="/demo/Signup">
-				<div class="closeModal-container">
-					<span class="closeModal" id="closeSignupForm" title="Close Signup Form">
-						&times;
-					</span>
-				</div>
+			<div class="formbody">
+				<label>Email</label>
+				<input type="text" placeholder="Enter Email" name="signupInfo" required>
+				<label>Username</label>
+				<input type="text" placeholder="Enter Username" name="signupInfo" required>
+				<label>Password</label>
+				<input type="password" placeholder="Enter Password" name="signupInfo" required><label>Repeat Password</label>
+				<input type="password" placeholder="Repeat Password" name="signupInfo" required>
+				<button type="submit" class="submit">Signup</button>
+				<input type="checkbox" checked="checked"> Remember me
+			</div>
 
-				<div class="formbody">
-					<label>Email</label>
-					<input type="text" placeholder="Enter Email" name="signupInfo" required>
-					<label>Username</label>
-					<input type="text" placeholder="Enter Username" name="signupInfo" required>
-					<label>Password</label>
-					<input type="password" placeholder="Enter Password" name="signupInfo" required>
-					<label>Repeat Password</label>
-					<input type="password" placeholder="Repeat Password" name="signupInfo" required>
-					<button type="submit" class="submit">Signup</button>
-					<input type="checkbox" checked="checked">
-					Remember me
-				</div>
+			<div class="formfooter">
+				<button class="cancel" id="cancelSignup">Cancel</button>
+			</div>
+		</form>
+	</div>
 
-				<div class="formfooter">
-					<button class="cancel" id="cancelSignup">Cancel</button>
-				</div>
-			</form>
-		</div>
+	<script type="text/javascript">
+		var openLoginBtn = document.getElementById('openLoginForm');
+		var closeLoginBtn = document.getElementById('closeLoginForm');
+		var cancelLoginBtn = document.getElementById('cancelLogin');
+		var loginForm = document.getElementById('loginForm');
+		var openSignupBtn = document.getElementById('openSignupForm');
+		var closeSignupBtn = document.getElementById('closeSignupForm');
+		var cancelSignupBtn = document.getElementById('cancelSignup');
+		var signupForm = document.getElementById('signupForm');
 
-		<script type="text/javascript"	>
-			// Get the openLogin button
-			var openLoginBtn = document.getElementById('openLoginForm');
+		openForm = function(form) {
+			form.style.display = "block";
+		}
 
-			//Get the closeLogin button
-			var closeLoginBtn = document.getElementById('closeLoginForm');
+		closeForm = function(form) {
+			form.style.display = "none";
+		}
 
-			//Get the cancelLogin button
-			var cancelLoginBtn = document.getElementById('cancelLogin');
+		openLoginBtn.onclick = function() {
+			openForm(loginForm);
+		}
 
-			// Get the modalLoginForm
-			var loginForm = document.getElementById('loginForm');
+		closeLoginBtn.onclick = function() {
+			closeForm(loginForm);
+		}
 
-			// Get the openSignup button
-			var openSignupBtn = document.getElementById('openSignupForm');
+		cancelLoginBtn.onclick = function() {
+			closeForm(loginForm);
+		}
 
-			//Get the closeSignup button
-			var closeSignupBtn = document.getElementById('closeSignupForm');
+		openSignupBtn.onclick = function() {
+			openForm(signupForm);
+		}
 
-			//Get the cancelSignup button
-			var cancelSignupBtn = document.getElementById('cancelSignup');
+		closeSignupBtn.onclick = function() {
+			closeForm(signupForm);
+		}
 
-			// Get the modalSignupForm
-			var signupForm = document.getElementById('signupForm');
+		cancelSignupBtn.onclick = function() {
+			closeForm(signupForm);
+		}
 
-			openForm = function(form){
-				form.style.display = "block";
-			}
-
-			closeForm = function(form){
-				form.style.display = "none";
-			}
-
-			// When the user clicks on the openLogin button, open the modalLoginForm
-			openLoginBtn.onclick = function() {
-				openForm(loginForm);
-			}
-
-			//When the user clicks on the closeLogin button, close the modalLoginForm
-			closeLoginBtn.onclick = function() {
+		// When the user clicks anywhere outside of the form, close it
+		window.onclick = function(event) {
+			if (event.target == loginForm)
 				closeForm(loginForm);
-			}
-
-			//When the user clicks on the cancelLogin button, close the modalLoginForm
-			cancelLoginBtn.onclick = function() {
-				closeForm(loginForm);
-			}
-
-			// When the user clicks on the openSignup button, open the modalSignupForm
-			openSignupBtn.onclick = function() {
-				openForm(signupForm);
-			}
-
-			//When the user clicks on the closeSignup button, close the modalSignupForm
-			closeSignupBtn.onclick = function() {
+			if (event.target == signupForm)
 				closeForm(signupForm);
-			}
-
-			//When the user clicks on the cancelSignup button, close the modalSignupForm
-			cancelSignupBtn.onclick = function() {
-				closeForm(signupForm);
-			}
-
-			// When the user clicks anywhere outside of the form, close it
-			window.onclick = function(event) {
-				if (event.target == loginForm)
-					closeForm(loginForm);
-				if (event.target == signupForm)
-					closeForm(signupForm);
-			}
-		</script>
-	</body>
+		}
+	</script>
+</body>
 </html>

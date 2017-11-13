@@ -1,69 +1,48 @@
-// Get the openLogin button
-var openLoginBtn = document.getElementById('openLoginForm');
+		var openLoginBtn = document.getElementById('openLoginForm');
+		var closeLoginBtn = document.getElementById('closeLoginForm');
+		var cancelLoginBtn = document.getElementById('cancelLogin');
+		var loginForm = document.getElementById('loginForm');
+		var openSignupBtn = document.getElementById('openSignupForm');
+		var closeSignupBtn = document.getElementById('closeSignupForm');
+		var cancelSignupBtn = document.getElementById('cancelSignup');
+		var signupForm = document.getElementById('signupForm');
 
-//Get the closeLogin button
-var closeLoginBtn = document.getElementById('closeLoginForm');
+		openForm = function(form) {
+			form.style.display = "block";
+		}
 
-//Get the cancelLogin button
-var cancelLoginBtn = document.getElementById('cancelLogin');
+		closeForm = function(form) {
+			form.style.display = "none";
+		}
 
-// Get the modalLoginForm
-var loginForm = document.getElementById('loginForm');
+		openLoginBtn.onclick = function() {
+			openForm(loginForm);
+		}
 
-// Get the openSignup button
-var openSignupBtn = document.getElementById('openSignupForm');
+		closeLoginBtn.onclick = function() {
+			closeForm(loginForm);
+		}
 
-//Get the closeSignup button
-var closeSignupBtn = document.getElementById('closeSignupForm');
+		cancelLoginBtn.onclick = function() {
+			closeForm(loginForm);
+		}
 
-//Get the cancelSignup button
-var cancelSignupBtn = document.getElementById('cancelSignup');
+		openSignupBtn.onclick = function() {
+			openForm(signupForm);
+		}
 
-// Get the modalSignupForm
-var signupForm = document.getElementById('signupForm');
+		closeSignupBtn.onclick = function() {
+			closeForm(signupForm);
+		}
 
-openForm = function(form){
-	form.style.display = "block";
-}
+		cancelSignupBtn.onclick = function() {
+			closeForm(signupForm);
+		}
 
-closeForm = function(form){
-	form.style.display = "none";
-}
-
-// When the user clicks on the openLogin button, open the modalLoginForm
-openLoginBtn.onclick = function() {
-	openForm(loginForm);
-}
-
-//When the user clicks on the closeLogin button, close the modalLoginForm
-closeLoginBtn.onclick = function() {
-	closeForm(loginForm);
-}
-
-//When the user clicks on the cancelLogin button, close the modalLoginForm
-cancelLoginBtn.onclick = function() {
-	closeForm(loginForm);
-}
-
-// When the user clicks on the openSignup button, open the modalSignupForm
-openSignupBtn.onclick = function() {
-	openForm(signupForm);
-}
-
-//When the user clicks on the closeSignup button, close the modalSignupForm
-closeSignupBtn.onclick = function() {
-	closeForm(signupForm);
-}
-
-//When the user clicks on the cancelSignup button, close the modalSignupForm
-cancelSignupBtn.onclick = function() {
-	closeForm(signupForm);
-}
-
-// When the user clicks anywhere outside of the form, close it
-window.onclick = function(event) {
-	if (event.target == loginForm)
-		closeForm(loginForm);
-	if (event.target == signupForm)
-		closeForm(signupForm);
-}
+		// When the user clicks anywhere outside of the form, close it
+		window.onclick = function(event) {
+			if (event.target == loginForm)
+				closeForm(loginForm);
+			if (event.target == signupForm)
+				closeForm(signupForm);
+		}
