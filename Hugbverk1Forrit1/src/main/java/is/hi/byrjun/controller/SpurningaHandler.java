@@ -116,12 +116,13 @@ public class SpurningaHandler {
     		return "demo/krossar";
     	}
     	//Ef rangt kemur sama spurning aftur
+    	model.addAttribute("selected", answers); // Svarið sem var valið
     	model.addAttribute("spurningin", spurningKrossar);
     	model.addAttribute("valmog1", svarmoguleiki1);
     	model.addAttribute("valmog2", svarmoguleiki2);
     	model.addAttribute("valmog3", svarmoguleiki3);
     	model.addAttribute("valmog4", svarmoguleiki4);
-    	return "demo/krossarRangt";
+    	return "demo/krossar";
     }
     
     

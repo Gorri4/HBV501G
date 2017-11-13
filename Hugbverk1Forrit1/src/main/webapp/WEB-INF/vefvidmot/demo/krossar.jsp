@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", click);
-    if (selected.innerHTML === labels[i].innerHTML) {
+    if (selected.innerText === labels[i].innerText) {
     	buttons[i].classList.add("wrong");
     }
   }
@@ -224,6 +224,7 @@ h1 {
   background: rgb(245, 38, 38);
   border: rgb(245, 38, 38);
   outline: none;
+  box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
 }
 
 @keyframes shake {
