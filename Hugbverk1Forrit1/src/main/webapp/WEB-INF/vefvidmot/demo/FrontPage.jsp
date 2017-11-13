@@ -269,7 +269,7 @@
 
         /* background picture */
         .bgimg {
-        	background-image: url('Iceland.jpg');
+        	background-image: url('https://notendur.hi.is/gop4/Iceland.jpg');
         	min-height: 100%;
         	background-position: center;
         	background-size: cover;
@@ -426,6 +426,7 @@
 		</script>
 	</body>
 </html>
+<<<<<<< HEAD
 <title>Icelandic for Beginners</title>
 <meta charset="UTF-8">
 <meta name="description" content="Learn Icelandic for Beginners">
@@ -547,3 +548,5 @@
 	</script>
 </body>
 </html>
+=======
+>>>>>>> origin/master
