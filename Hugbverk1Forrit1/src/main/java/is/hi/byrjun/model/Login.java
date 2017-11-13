@@ -15,7 +15,7 @@ public class Login {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//breta
-	private float id;
+	private int id;
 	@NotNull
 	private String userinn;
 	@NotNull
