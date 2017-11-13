@@ -36,6 +36,12 @@ public class LoginHandler {
         System.out.println ("Login");
     	return "demo/Login";
     }
+	
+	@RequestMapping(value="/SignUp", method=RequestMethod.GET)
+    public String SignUp () {
+        System.out.println ("SignUp");
+    	return "demo/SignUp";
+    }
 
 
 	
@@ -53,9 +59,10 @@ public class LoginHandler {
     }
     
     @RequestMapping(value="/SignUp", method=RequestMethod.POST)
-    public String SignUp (@RequestParam("signupInfo") List<String> params) {
+    public String signUp (@RequestParam("signupInfo") List<String> params) {
     	String user = params.get(0);
     	String password = params.get(1);
+    	System.out.println("hann heitir" + user);
     	addNotandi(user,password);
     	System.out.println("Notandabatt vid");
     		return "demo/FrontPage";	
@@ -91,6 +98,7 @@ public class LoginHandler {
 	
 	public void addNotandi(String notandi, String password){
 		Login notandinn = new Login(notandi,password);
+		System.out.println(notandinn);
 		loginService.addNotandi(notandinn);
 	}
 

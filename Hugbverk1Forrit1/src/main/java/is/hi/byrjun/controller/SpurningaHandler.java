@@ -106,7 +106,6 @@ public class SpurningaHandler {
     		//Ef svarið er rétt hækkar teljari um einn og nær í nýja spurningu 
     		i++;
     		nySpurning();
-    		
     		model.addAttribute("spurningin", spurningKrossar);
         	model.addAttribute("valmog1", svarmoguleiki1);
         	model.addAttribute("valmog2", svarmoguleiki2);
@@ -121,7 +120,7 @@ public class SpurningaHandler {
     	model.addAttribute("valmog2", svarmoguleiki2);
     	model.addAttribute("valmog3", svarmoguleiki3);
     	model.addAttribute("valmog4", svarmoguleiki4);
-    	return "demo/krossarRangt";
+    	return "demo/krossar";
     }
     
     
