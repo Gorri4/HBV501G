@@ -326,7 +326,7 @@
 		</div>
 
 		<div class="modalForm" id="signupForm">
-			<form method="POST" class="modal-content animate" action="/demo/SignUp">
+			<form method="POST" class="modal-content animate" action="/demo/Signup">
 				<div class="closeModal-container">
 					<span class="closeModal" id="closeSignupForm" title="Close Signup Form">
 						&times;
