@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
-<<<<<<< Updated upstream
 	<title>Icelandic for Beginners</title>
 	<meta charset="UTF-8">
 	<meta name="description" content="Learn Icelandic for Beginners">
@@ -427,7 +426,6 @@
 		</script>
 	</body>
 </html>
-=======
 <title>Icelandic for Beginners</title>
 <meta charset="UTF-8">
 <meta name="description" content="Learn Icelandic for Beginners">
@@ -549,4 +547,3 @@
 	</script>
 </body>
 </html>
->>>>>>> Stashed changes
