@@ -8,202 +8,32 @@
 <head>
     <title>Krossar</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 </head>
 <body>
 
 <h1>Krossar</h1>
 
 <form method="POST" action="krossar">
-<div class="question">Choose the correct translation for ${spurningin}</div>
+<p>Choose the correct translation for ${spurningin}</p>
 <br>
 
-<div class="answers">
-<div class="answers-wrap">
-
-<button class="answer-box">
 <input type="radio" name="answers" id="1" value=${valmog1}>
 <label for="1">${valmog1}</label>
-</button>
 
-<button class="answer-box">
 <input type="radio" name="answers" id="2" value=${valmog2}>
 <label for="2">${valmog2}</label>
-</button>
 
-<button class="answer-box">
 <input type="radio" name="answers" id="3" value=${valmog3}>
 <label for="3">${valmog3}</label>
-</button>
 
-<button class="answer-box">
 <input type="radio" name="answers" id="4" value=${valmog4}>
 <label for="4">${valmog4}</label>
-</button>
 
-</div>
 <br>
 
 <input type="submit" value="Submit" />
 
-</div>
-
 </form>
-
-<script>
-var buttons;
-var checkmarks;
-var labels;
-
-document.addEventListener("DOMContentLoaded", function(event) {
-  buttons = document.querySelectorAll('.answer-box');
-  console.log(buttons);
-  checkmarks = document.querySelectorAll('input[type="radio"]');
-  console.log(checkmarks);
-  labels = document.querySelectorAll('label');
-  console.log(labels);
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", click);
-  }
-});
-
-function click(e) {
-  e.preventDefault();
-  var i;
-  console.log(e);
-  // Setja checked á takkan sem ýtt var á, annars ekki checked
-  for (i = 0; i < buttons.length; i++) {
-    if (e.target === buttons[i] || e.target === labels[i]) {
-      checkmarks[i].checked = true;
-      buttons[i].classList.add("selected");
-    } else {
-      checkmarks[i].checked = false;
-      buttons[i].classList.remove("selected");
-    }
-  }
-  console.log(checkmarks);
-}
-
-
-</script>
-
-<style>
-html {
-	box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-  /* fjarlægjum margin og padding */
-  padding: 0;
-  margin: 0;
-}
-
-html {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
-  font-family: 'Lato', helvetica, arial, sans-serif;
-}
-
-.question {
-  min-height: 36px;
-  overflow: hidden;
-  border: none;
-  margin: 10px auto 0;
-  font-size: 20pt;
-  padding: 10px;
-  text-align: center;
-  background: #fafafa;
-  border: 1px solid #dddfde;
-}
-
-.answers {
-  text-align: center;
-  background: #fafafa;
-  border-right: 1px solid #dddfde;
-  border-bottom: 1px solid #dddfde;
-  border-left: 1px solid #dddfde;
-  border-bottom-left-radius: 5px;
-  -moz-border-radius-bottomleft: 5px;
-  -webkit-border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  -moz-border-radius-bottomright: 5px;
-  -webkit-border-bottom-right-radius: 5px;
-  position: relative;
-  padding: 10px;
-  margin: 0 auto 15px;
-}
-
-.answers-wrap {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 0;
-}
-
-.answer-box {
-  display: flex;
-    max-width: 433px;
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
-    padding: 16px 4px;
-    overflow: hidden;
-    border: 1px solid #cfcfcf;
-    background: #eaeaea;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    -webkit-box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    font-size: 22pt;
-    cursor: pointer;
-}
-
-.answer-box label {
-  margin: auto;
-  cursor: pointer;
-  font-family: 'Lato', helvetica, arial, sans-serif;
-}
-
-.answer-box.selected {
-  background: rgb(132, 182, 35);
-  outline: none;
-  border: rgb(132, 182, 35);
-  box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-input[type="submit"] {
-  padding: 0.625em 0.3125em;
-  border: rgb(132, 182, 35);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  color: #eee;
-  font-family: 'Lato', helvetica, arial, sans-serif;
-  cursor: pointer;
-  text-decoration: none;
-  margin: auto;
-  background: rgb(132, 182, 35);
-  font-size: 2em;
-  max-width: 236px;
-  width: 100%;
-  text-align: center;
-  border-radius: 4px;
-}
-
-h1 {
-  text-align: center;
-}
-</style>
 
 </body>
 
