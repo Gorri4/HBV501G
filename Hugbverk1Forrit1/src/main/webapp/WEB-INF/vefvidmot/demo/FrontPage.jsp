@@ -270,7 +270,7 @@
 
         /* background picture */
         .bgimg {
-        	background-image: url('https://notendur.hi.is/gop4/Iceland.jpg');
+        	background-image: url('Iceland.jpg');
         	min-height: 100%;
         	background-position: center;
         	background-size: cover;
