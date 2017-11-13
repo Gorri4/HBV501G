@@ -49,8 +49,18 @@ public class LoginHandler {
     	if (checkLoginInfo(notendur, user, password)) {
     		return "demo/Valmynd";
     	}
-    		return "demo/LoginRangt";	
+    		return "demo/FrontPage";	
     }
+    
+    @RequestMapping(value="/SignUp", method=RequestMethod.POST)
+    public String SignUp (@RequestParam("signupInfo") List<String> params) {
+    	String user = params.get(0);
+    	String password = params.get(1);
+    	addNotandi(user,password);
+    	System.out.println("Notandabatt vid");
+    		return "demo/FrontPage";	
+    }
+    
     
 	
 	/**
@@ -79,10 +89,9 @@ public class LoginHandler {
 			return false;	
 	}
 	
-	public String addNotandi(String notandi, String password){
+	public void addNotandi(String notandi, String password){
 		Login notandinn = new Login(notandi,password);
 		loginService.addNotandi(notandinn);
-		return "demo/Login";
 	}
 
     @RequestMapping("FrontPage")
