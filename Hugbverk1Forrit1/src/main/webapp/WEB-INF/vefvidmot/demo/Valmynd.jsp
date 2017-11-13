@@ -4,7 +4,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!--%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%-->
 
 <html lang="en">
 <title>Icelandic for Beginners</title>
@@ -30,7 +29,7 @@
 </style>
 
 <body>
-	<form method="POST" action="valmynd">
+	<form method="POST" action="Valmynd">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-sm">
@@ -59,7 +58,7 @@
 		<div class="row align-items-center">
 			<div class="col-sm">
 				<h1 class="animate-top">Exercise 4</h1>
-				<h2 class="animate-top">Essencial Pickup Lines</h2>
+				<h2 class="animate-top">Essential Pickup Lines</h2>
 				<hr>
 				<button type="button" name="button" value="button4" class="btn btn-success">Start</button>
 			</div>
@@ -68,7 +67,4 @@
 	</form>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 </body>
