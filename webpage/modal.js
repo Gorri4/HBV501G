@@ -1,48 +1,69 @@
-		var openLoginBtn = document.getElementById('openLoginForm');
-		var closeLoginBtn = document.getElementById('closeLoginForm');
-		var cancelLoginBtn = document.getElementById('cancelLogin');
-		var loginForm = document.getElementById('loginForm');
-		var openSignupBtn = document.getElementById('openSignupForm');
-		var closeSignupBtn = document.getElementById('closeSignupForm');
-		var cancelSignupBtn = document.getElementById('cancelSignup');
-		var signupForm = document.getElementById('signupForm');
+// Get the openLogin button
+var openLoginBtn = document.getElementById('openLoginForm');
 
-		openForm = function(form) {
-			form.style.display = "block";
-		}
+//Get the closeLogin button
+var closeLoginBtn = document.getElementById('closeLoginForm');
 
-		closeForm = function(form) {
-			form.style.display = "none";
-		}
+//Get the cancelLogin button
+var cancelLoginBtn = document.getElementById('cancelLogin');
 
-		openLoginBtn.onclick = function() {
-			openForm(loginForm);
-		}
+// Get the modalLoginForm
+var loginForm = document.getElementById('loginForm');
 
-		closeLoginBtn.onclick = function() {
-			closeForm(loginForm);
-		}
+// Get the openSignup button
+var openSignupBtn = document.getElementById('openSignupForm');
 
-		cancelLoginBtn.onclick = function() {
-			closeForm(loginForm);
-		}
+//Get the closeSignup button
+var closeSignupBtn = document.getElementById('closeSignupForm');
 
-		openSignupBtn.onclick = function() {
-			openForm(signupForm);
-		}
+//Get the cancelSignup button
+var cancelSignupBtn = document.getElementById('cancelSignup');
 
-		closeSignupBtn.onclick = function() {
-			closeForm(signupForm);
-		}
+// Get the modalSignupForm
+var signupForm = document.getElementById('signupForm');
 
-		cancelSignupBtn.onclick = function() {
-			closeForm(signupForm);
-		}
+openForm = function(form){
+	form.style.display = "block";
+}
 
-		// When the user clicks anywhere outside of the form, close it
-		window.onclick = function(event) {
-			if (event.target == loginForm)
-				closeForm(loginForm);
-			if (event.target == signupForm)
-				closeForm(signupForm);
-		}
+closeForm = function(form){
+	form.style.display = "none";
+}
+
+// When the user clicks on the openLogin button, open the modalLoginForm
+openLoginBtn.onclick = function() {
+	openForm(loginForm);
+}
+
+//When the user clicks on the closeLogin button, close the modalLoginForm
+closeLoginBtn.onclick = function() {
+	closeForm(loginForm);
+}
+
+//When the user clicks on the cancelLogin button, close the modalLoginForm
+cancelLoginBtn.onclick = function() {
+	closeForm(loginForm);
+}
+
+// When the user clicks on the openSignup button, open the modalSignupForm
+openSignupBtn.onclick = function() {
+	openForm(signupForm);
+}
+
+//When the user clicks on the closeSignup button, close the modalSignupForm
+closeSignupBtn.onclick = function() {
+	closeForm(signupForm);
+}
+
+//When the user clicks on the cancelSignup button, close the modalSignupForm
+cancelSignupBtn.onclick = function() {
+	closeForm(signupForm);
+}
+
+// When the user clicks anywhere outside of the form, close it
+window.onclick = function(event) {
+	if (event.target == loginForm)
+		closeForm(loginForm);
+	if (event.target == signupForm)
+		closeForm(signupForm);
+}

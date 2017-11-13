@@ -31,9 +31,8 @@ public class LoginHandler {
 	
 	//Harðkóðuð gildi fyrir user-a og password þeirra
     
-	@RequestMapping(value="/Login", method=RequestMethod.GET)
+	@RequestMapping("Login")
     public String Login () {
-        System.out.println ("Login");
     	return "demo/Login";
     }
 
@@ -87,7 +86,6 @@ public class LoginHandler {
 
     @RequestMapping("FrontPage")
     public String Valmynd () {
-    	System.out.println("virkar");
     	return "demo/FrontPage";
     }
     
