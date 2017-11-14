@@ -116,11 +116,7 @@ public class SpurningaHandler {
     		return "demo/krossar";
     	}
     	//Ef rangt kemur sama spurning aftur
-<<<<<<< Updated upstream
     	model.addAttribute("selected", answers); // Svari� sem var vali�
-=======
-    	model.addAttribute("selected", answers);
->>>>>>> Stashed changes
     	model.addAttribute("spurningin", spurningKrossar);
     	model.addAttribute("valmog1", svarmoguleiki1);
     	model.addAttribute("valmog2", svarmoguleiki2);
@@ -161,8 +157,18 @@ public class SpurningaHandler {
     }
     
     //Fall nær í eyðufyllingasíðu
-    @RequestMapping("eyduFyllinar")
+	@RequestMapping("eyduFyllingar")
     public String eyduFyllingar (Model model) {
+    	ArrayList<Eydufyllingar> eydufyllingalisti;
+		eydufyllingalisti = (ArrayList)eydufyllingaService.allarEydufyllingar();
+		spurningEydu = eydufyllingalisti.get(i).getSpurning();
+		svarmoguleiki1Eydu = eydufyllingalisti.get(i).getSvarmog1();
+		svarmoguleiki2Eydu = eydufyllingalisti.get(i).getSvarmog2();
+		svarmoguleiki3Eydu = eydufyllingalisti.get(i).getSvarmog3();
+		svarmoguleiki4Eydu = eydufyllingalisti.get(i).getSvarmog4();
+		rettSvarEydu = eydufyllingalisti.get(i).getrettSvar();
+		System.out.println("réttSvar" + rettSvar);
+    	
     	model.addAttribute("spurningin", spurningEydu);
     	model.addAttribute("valmog1", svarmoguleiki1Eydu);
     	model.addAttribute("valmog2", svarmoguleiki2Eydu);
@@ -176,7 +182,7 @@ public class SpurningaHandler {
     public String eyduFyll (@RequestParam(value="answers", required=false)
     String answers, ModelMap model) {
     	model.addAttribute("answers", answers);
-    	if (answers.equals(rettSvarEydu)) {  	
+    	if (answers.equals(rettSvarEydu)) {
     		
     		a++;
     		nySpurning();
@@ -190,12 +196,13 @@ public class SpurningaHandler {
     		return "demo/eyduFyllingar";
     	}
     	else{
-    	model.addAttribute("spurningin", spurningEydu);
-    	model.addAttribute("valmog1", svarmoguleiki1Eydu);
-    	model.addAttribute("valmog2", svarmoguleiki2Eydu);
-    	model.addAttribute("valmog3", svarmoguleiki3Eydu);
-    	model.addAttribute("valmog4", svarmoguleiki4Eydu);
-    	return "demo/eyduFyllingarRangt";
+    		model.addAttribute("selected", answers);
+    		model.addAttribute("spurningin", spurningEydu);
+    		model.addAttribute("valmog1", svarmoguleiki1Eydu);
+    		model.addAttribute("valmog2", svarmoguleiki2Eydu);
+    		model.addAttribute("valmog3", svarmoguleiki3Eydu);
+    		model.addAttribute("valmog4", svarmoguleiki4Eydu);
+    		return "demo/eyduFyllingar";
     	}
     }
     

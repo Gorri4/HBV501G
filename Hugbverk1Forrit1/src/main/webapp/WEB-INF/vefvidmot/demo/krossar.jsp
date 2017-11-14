@@ -159,7 +159,7 @@ html {
     text-align: center;
     padding: 16px 4px;
     overflow: hidden;
-    border: #cfcfcf;
+    border: 0;
     background: #eaeaea;
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -181,7 +181,6 @@ html {
 .answer-box.selected {
   background: rgb(132, 182, 35);
   outline: none;
-  border: rgb(132, 182, 35);
   box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
 }
 
@@ -222,7 +221,6 @@ h1 {
   backface-visibility: hidden;
   perspective: 1000px;
   background: rgb(245, 38, 38);
-  border: rgb(245, 38, 38);
   outline: none;
   box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
 }

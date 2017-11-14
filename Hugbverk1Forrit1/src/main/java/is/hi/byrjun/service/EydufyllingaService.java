@@ -27,9 +27,9 @@ public interface EydufyllingaService {
      * @return listi af kennurum
      */
     public List<Eydufyllingar> allarEydufyllingar();
-    
-     public Eydufyllingar save(Eydufyllingar eydufyllingar);
-          
-     public List<Eydufyllingar> finnaAlla3Stafi();
+      
+      public Eydufyllingar save(Eydufyllingar eydufyllingar);
+        
+      public List<Eydufyllingar> finnaAlla3Stafi();
              
 }
