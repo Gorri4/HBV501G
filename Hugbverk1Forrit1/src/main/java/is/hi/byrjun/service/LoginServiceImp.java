@@ -33,6 +33,12 @@ public class LoginServiceImp implements LoginService {
 		return null;
 	}
 
+	@Override
+	public Login getbyId(int i) {
+		return loginRepo.findById(i);
+	}
+	
+
 
 
 }

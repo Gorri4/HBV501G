@@ -1,6 +1,7 @@
 package is.hi.byrjun.service;
 
 
+import is.hi.byrjun.model.Login;
 import is.hi.byrjun.model.Spurningar;
 import is.hi.byrjun.repository.SpurningaRepository;
 import java.util.List;
@@ -42,6 +43,12 @@ public class SpurningaServiceImp implements SpurningaService {
 	@Override
 	public List<Spurningar> allarSpurningar() {
 		return spurningRep.findAll();
+	}
+
+	@Override
+	public Spurningar getbyId(int i) {
+		
+		return spurningRep.findById(i);
 	}
 
 }

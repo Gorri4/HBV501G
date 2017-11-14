@@ -3,6 +3,8 @@ package is.hi.byrjun.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import is.hi.byrjun.model.Login;
@@ -13,5 +15,10 @@ public interface LoginRepository extends JpaRepository<Login, Long>{
 	Login save (Login notandi);
 	
 	List<Login> findAll();
-		
+	
+	@Query(value = "SELECT p FROM Login p where p.id = 3 ")
+    List<Login> findAllWithNameLongerThan3Chars();
+	
+	Login findById(int i);
+	
 }

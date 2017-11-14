@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import is.hi.byrjun.model.Login;
 import is.hi.byrjun.model.Spurningar;
 
 @Repository
@@ -14,4 +15,5 @@ public interface SpurningaRepository extends JpaRepository<Spurningar, Long>{
 	
 	List<Spurningar> findAll();
 		
+	Spurningar findById(int i);
 }

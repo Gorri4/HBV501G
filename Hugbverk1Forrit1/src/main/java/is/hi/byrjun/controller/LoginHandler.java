@@ -46,9 +46,8 @@ public class LoginHandler {
     	String user = params.get(0);
     	String password = params.get(1);
     	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
-    	
+    	System.out.println(loginService.getbyId(1).getUser());
     	if (checkLoginInfo(notendur, user, password)) {
-    		currNotandi = new Login(user,password);
     		return "demo/Valmynd";
     	}
     		return "demo/LoginRangt";	
@@ -56,10 +55,11 @@ public class LoginHandler {
     
     @RequestMapping(value="/SignUp", method=RequestMethod.POST)
     public String signUp (@RequestParam("signupInfo") List<String> params) {
-    	String user = params.get(0);
-    	String password = params.get(1);
+    	String user = params.get(1);
+    	String password = params.get(2);
+    	String email = params.get(0);
     	
-    	addNotandi(user,password);
+    	addNotandi(user,password,email);
     		return "demo/FrontPage";	
     }
     
@@ -73,7 +73,7 @@ public class LoginHandler {
 	public boolean checkLoginInfo(ArrayList<Login> notendur, String userInput, String passwordInput) {
 		boolean userinnBool = false;
 		boolean passwordBool = false;
-		System.out.println("fer inn í fall");
+		//System.out.println("fer inn í fall");
 		for (Login s: notendur) {
 			if (userInput.equals(s.getUser())){
 				userinnBool = true;
@@ -90,9 +90,8 @@ public class LoginHandler {
 			return false;	
 	}
 	
-	public void addNotandi(String notandi, String password){
-		System.out.println(notandi);
-		Login notandinn = new Login(notandi,password);
+	public void addNotandi(String notandi, String password,String email){
+		Login notandinn = new Login(notandi,password,email);
 		loginService.addNotandi(notandinn);
 	}
 

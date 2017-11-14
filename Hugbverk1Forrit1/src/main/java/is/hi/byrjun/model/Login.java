@@ -20,13 +20,14 @@ public class Login {
 	private String userinn;
 	@NotNull
 	private String password;
-
+	private String email;
 
 	
 	//Smiður fyrir spurningaklasann
-	public Login(String userinn, String password) {
+	public Login(String userinn, String password,String email) {
 		this.userinn = userinn;
 		this.password = password;
+		this.email = email;
 	}
 	
 	public Login(){

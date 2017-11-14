@@ -2,6 +2,7 @@ package is.hi.byrjun.service;
 
 import java.util.*;
 
+import is.hi.byrjun.model.Login;
 import is.hi.byrjun.model.Spurningar;
 
 public interface SpurningaService {
@@ -31,5 +32,7 @@ public interface SpurningaService {
      public Spurningar save(Spurningar spurningar);
           
      public List<Spurningar> finnaAlla3Stafi();
+     
+     public Spurningar getbyId(int i);
              
 }

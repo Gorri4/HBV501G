@@ -13,5 +13,6 @@ public interface LoginService {
     public List<Login> allirNotendur();
     
      public Login save(Login notandi);
-             
+
+     public Login getbyId(int i);
 }
