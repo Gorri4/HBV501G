@@ -156,23 +156,28 @@ html {
 
 .answer-box {
   display: flex;
-    max-width: 433px;
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
-    padding: 16px 4px;
-    overflow: hidden;
-    border: #cfcfcf;
-    background: #eaeaea;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    -webkit-box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    font-size: 22pt;
-    cursor: pointer;
-    outline: none;
+  max-width: 433px;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 16px 4px;
+  overflow: hidden;
+  border: 0;
+  background: #eaeaea;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
+  -webkit-box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
+  box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
+  font-size: 22pt;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+.answer-box:hover {
+  background: #aeaeae;
 }
 
 .answer-box label {
@@ -184,7 +189,6 @@ html {
 .answer-box.selected {
   background: rgb(132, 182, 35);
   outline: none;
-  border: rgb(132, 182, 35);
   box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
 }
 
@@ -193,7 +197,7 @@ input[type="radio"] {
 }
 
 input[type="submit"] {
-  padding: 0.625em 0.3125em;
+  padding: 0.325em 0.3125em;
   border: rgb(132, 182, 35);
   white-space: nowrap;
   overflow: hidden;
@@ -203,12 +207,17 @@ input[type="submit"] {
   cursor: pointer;
   text-decoration: none;
   margin: auto;
-  background: rgb(132, 182, 35);
-  font-size: 2em;
+  background: #84b623;
+  font-size: 2.6em;
   max-width: 236px;
   width: 100%;
   text-align: center;
   border-radius: 4px;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+input[type="submit"]:hover {
+  background: #486b32;
 }
 
 h1 {
@@ -220,14 +229,15 @@ h1 {
 }
 
 .wrong {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) forwards;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97);
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
   background: rgb(245, 38, 38);
-  border: rgb(245, 38, 38);
   outline: none;
   box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
+  transition-property: none;
+  pointer-events: none;
 }
 
 @keyframes shake {
