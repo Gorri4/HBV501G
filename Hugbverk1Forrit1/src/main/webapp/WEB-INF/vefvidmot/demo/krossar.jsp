@@ -15,7 +15,7 @@
 <h1>Krossar</h1>
 
 <form method="POST" action="krossar">
-<div class="question">Choose the correct translation for ${spurningin}</div>
+<div class="question">Choose the correct translation for <br><p class=spurningOrd>${spurningin}</p></div>
 <br>
 
 <div class="answers">
@@ -95,6 +95,9 @@ function click(e) {
 </script>
 
 <style>
+.spurningOrd{
+	color:blue;
+}
 html {
 	box-sizing: border-box;
 }

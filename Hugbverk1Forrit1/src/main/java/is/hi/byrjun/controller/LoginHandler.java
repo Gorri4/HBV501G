@@ -28,6 +28,7 @@ public class LoginHandler {
 	
 	@Autowired
     LoginService loginService;
+	public Login currNotandi;
 	
 	//Harðkóðuð gildi fyrir user-a og password þeirra
     
@@ -95,6 +96,7 @@ public class LoginHandler {
 	}
 	
 	public void addNotandi(String notandi, String password){
+		System.out.println(notandi);
 		Login notandinn = new Login(notandi,password);
 		loginService.addNotandi(notandinn);
 	}

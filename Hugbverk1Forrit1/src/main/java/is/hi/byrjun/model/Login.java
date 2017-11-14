@@ -21,6 +21,7 @@ public class Login {
 	@NotNull
 	private String password;
 
+
 	
 	//Smiður fyrir spurningaklasann
 	public Login(String userinn, String password) {
@@ -32,6 +33,7 @@ public class Login {
 		
 	}
 	
+
 	//föll sem ná í breytur hluta af klasanum
 	public String getUser(){
 		return userinn;

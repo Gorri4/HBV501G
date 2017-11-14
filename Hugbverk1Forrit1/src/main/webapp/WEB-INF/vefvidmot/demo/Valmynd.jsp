@@ -29,14 +29,14 @@
 </style>
 
 <body>
-	<form method="POST" action="Valmynd">
+	<form method="POST" action="valmynd">
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-sm">
 				<h1 class="animate-top">Exercise 1</h1>
 				<h2 class="animate-top">Fruits</h2>
 				<hr>
-				<button type="button" name="button" value="button1" class="btn btn-success">Start</button>
+				<button type="submit" name="button" value="button1" class="btn btn-success">Start</button>
 			</div>
 		</div>
 		<div class="row align-items-center">
@@ -44,7 +44,7 @@
 				<h1 class="animate-top">Exercise 2</h1>
 				<h2 class="animate-top">Numbers</h2>
 				<hr>
-				<button type="button" name="button" value="button2" class="btn btn-success">Start</button>
+				<button type="submit" name="button" value="button2" class="btn btn-success">Start</button>
 			</div>
 		</div>
 		<div class="row align-items-center">
@@ -52,7 +52,7 @@
 				<h1 class="animate-top">Exercise 3</h1>
 				<h2 class="animate-top">Basic Phrases</h2>
 				<hr>
-				<button type="button" name="button" value="button3" class="btn btn-success">Start</button>
+				<button type="submit" name="button" value="button3" class="btn btn-success">Start</button>
 			</div>
 		</div>
 		<div class="row align-items-center">
@@ -60,7 +60,7 @@
 				<h1 class="animate-top">Exercise 4</h1>
 				<h2 class="animate-top">Essential Pickup Lines</h2>
 				<hr>
-				<button type="button" name="button" value="button4" class="btn btn-success">Start</button>
+				<button type="submit" name="button" value="button4" class="btn btn-success">Start</button>
 			</div>
 		</div>
 	</div>
