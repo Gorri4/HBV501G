@@ -53,11 +53,8 @@ public class SpurningaHandler {
 	}
 	
 	//Fall sem nær í nýja spurningu
-	public void nySpurning(){
-		/*
-		ArrayList<Spurningar> spurningalisti;
-		spurningalisti = (ArrayList)spurningaService.allarSpurningar();
-		*/
+	public boolean nySpurning(){
+		try{
 		Spurningar spurning = spurningaService.getbyId(i);
 		spurningKrossar = spurning.getSpurning();
 		svarmoguleiki1 = spurning.getSvarmog1();
@@ -73,16 +70,16 @@ public class SpurningaHandler {
 		svarmoguleiki3Eydu = spurninginEydu.getSvarmog3();
 		svarmoguleiki4Eydu = spurninginEydu.getSvarmog4();
 		rettSvarEydu = spurninginEydu.getrettSvar();
-		
+		return true;
+		}
+		catch(NullPointerException e){
+			return false;
+		}
 	}
 	
 	//Sækir síðuna /krossar og setur inn gildi á viðeigandi stað
 	@RequestMapping("krossar")
     public String krossar (Model model) {
-		/*
-		ArrayList<Spurningar> spurningalisti;
-		spurningalisti = (ArrayList)spurningaService.allarSpurningar();
-		*/
 		Spurningar spurning = spurningaService.getbyId(i);
 		spurningKrossar = spurning.getSpurning();
 		svarmoguleiki1 = spurning.getSvarmog1();
@@ -109,7 +106,7 @@ public class SpurningaHandler {
     		//Ef svarið er rétt hækkar teljari um einn og nær í nýja spurningu 
     		i++;
     		a++;
-    		nySpurning();
+    		if(nySpurning()){
     		model.addAttribute("spurningin", spurningKrossar);
         	model.addAttribute("valmog1", svarmoguleiki1);
         	model.addAttribute("valmog2", svarmoguleiki2);
@@ -117,6 +114,11 @@ public class SpurningaHandler {
         	model.addAttribute("valmog4", svarmoguleiki4);
         	
     		return "demo/krossar";
+    		}
+    		else{
+    			model.addAttribute("i", a);
+    			return "demo/Valmynd";
+    		}
     	}
     	//Ef rangt kemur sama spurning aftur
     	model.addAttribute("selected", answers); // Svari� sem var vali�
@@ -144,56 +146,82 @@ public class SpurningaHandler {
     	model.addAttribute("i", a);
     	if(button.equals("button1")){
     			i=3;
-    			nySpurning();
+    			
+    			if(nySpurning()){
     	    	model.addAttribute("spurningin", spurningKrossar);
     	    	model.addAttribute("valmog1", svarmoguleiki1);
     	    	model.addAttribute("valmog2", svarmoguleiki2);
     	    	model.addAttribute("valmog3", svarmoguleiki3);
     	    	model.addAttribute("valmog4", svarmoguleiki4);
     	    	return "demo/krossar";
+    			}
+    			else{
+    			model.addAttribute("i", a);
+    			return "demo/Valmynd";
+    			}
     	}
     	
     	if(button.equals("button2") && a > 12){
     		i=13;
-			nySpurning();
-	    	model.addAttribute("spurningin", spurningKrossar);
-	    	model.addAttribute("valmog1", svarmoguleiki1);
-	    	model.addAttribute("valmog2", svarmoguleiki2);
-	    	model.addAttribute("valmog3", svarmoguleiki3);
-	    	model.addAttribute("valmog4", svarmoguleiki4);
-	    	return "demo/krossar";
+    		if(nySpurning()){
+    	    	model.addAttribute("spurningin", spurningKrossar);
+    	    	model.addAttribute("valmog1", svarmoguleiki1);
+    	    	model.addAttribute("valmog2", svarmoguleiki2);
+    	    	model.addAttribute("valmog3", svarmoguleiki3);
+    	    	model.addAttribute("valmog4", svarmoguleiki4);
+    	    	return "demo/krossar";
+    			}
+    			else{
+    			model.addAttribute("i", a);
+    			return "demo/Valmynd";
+    			}
 	}
     	
     	if(button.equals("button3") && a > 22){
     		i=23;
-			nySpurning();
-	    	model.addAttribute("spurningin", spurningKrossar);
-	    	model.addAttribute("valmog1", svarmoguleiki1);
-	    	model.addAttribute("valmog2", svarmoguleiki2);
-	    	model.addAttribute("valmog3", svarmoguleiki3);
-	    	model.addAttribute("valmog4", svarmoguleiki4);
-	    	return "demo/krossar";
+    		if(nySpurning()){
+    	    	model.addAttribute("spurningin", spurningKrossar);
+    	    	model.addAttribute("valmog1", svarmoguleiki1);
+    	    	model.addAttribute("valmog2", svarmoguleiki2);
+    	    	model.addAttribute("valmog3", svarmoguleiki3);
+    	    	model.addAttribute("valmog4", svarmoguleiki4);
+    	    	return "demo/krossar";
+    			}
+    			else{
+    			model.addAttribute("i", a);
+    			return "demo/Valmynd";
+    			}
 	}
     	
-    	if(button.equals("button4") && a > 32){
+    	if(button.equals("button4") && a > 31){
     		i=1;
-			nySpurning();
+			if(nySpurning()){
 	    	model.addAttribute("spurningin", spurningEydu);
 	    	model.addAttribute("valmog1", svarmoguleiki1Eydu);
 	    	model.addAttribute("valmog2", svarmoguleiki2Eydu);
 	    	model.addAttribute("valmog3", svarmoguleiki3Eydu);
 	    	model.addAttribute("valmog4", svarmoguleiki4Eydu);
 	    	return "demo/eyduFyllingar";
+			}
+			else{
+				model.addAttribute("i", a);
+    			return "demo/Valmynd";
+			}
 	}
-    	if(button.equals("button5") && a > 52){
+    	if(button.equals("button5") && a > 51){
     	i=21;
-    	nySpurning();
+    	if(nySpurning()){
     	model.addAttribute("spurningin", spurningEydu);
     	model.addAttribute("valmog1", svarmoguleiki1Eydu);
     	model.addAttribute("valmog2", svarmoguleiki2Eydu);
     	model.addAttribute("valmog3", svarmoguleiki3Eydu);
     	model.addAttribute("valmog4", svarmoguleiki4Eydu);
     	 return "demo/eyduFyllingar";
+    	}
+    	else{
+    		model.addAttribute("i", a);
+			return "demo/Valmynd";
+    	}
     }
     	return "demo/Valmynd";
    }
@@ -228,7 +256,7 @@ public class SpurningaHandler {
     		
     		a++;
     		i++;
-    		nySpurning();
+    		if(nySpurning()){
     		
     		model.addAttribute("spurningin", spurningEydu);
     		model.addAttribute("valmog1", svarmoguleiki1Eydu);
@@ -237,6 +265,11 @@ public class SpurningaHandler {
         	model.addAttribute("valmog4", svarmoguleiki4Eydu);
         	
     		return "demo/eyduFyllingar";
+    		}
+    		else{
+    			model.addAttribute("i", a);
+    			return "demo/Valmynd";
+    		}
     	}
     	else{
     		model.addAttribute("selected", answers);

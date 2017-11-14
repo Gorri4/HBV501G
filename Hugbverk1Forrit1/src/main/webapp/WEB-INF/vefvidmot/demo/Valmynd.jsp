@@ -113,7 +113,7 @@
 			buttons[1].classList.add('btn-success');
 			buttons[2].classList.add('btn-success');
 		}
-		if(e > 32){
+		if(e > 31){
 			buttons[0].classList.add('btn-success');
 			buttons[1].classList.add('btn-success');
 			buttons[2].classList.add('btn-success');
