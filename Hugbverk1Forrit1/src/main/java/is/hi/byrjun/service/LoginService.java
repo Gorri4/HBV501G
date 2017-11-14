@@ -15,4 +15,6 @@ public interface LoginService {
      public Login save(Login notandi);
 
      public Login getbyId(int i);
+     
+     public int getbyIdQuery(String i);
 }

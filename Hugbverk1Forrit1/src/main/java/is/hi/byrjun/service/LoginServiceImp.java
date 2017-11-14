@@ -37,6 +37,12 @@ public class LoginServiceImp implements LoginService {
 	public Login getbyId(int i) {
 		return loginRepo.findById(i);
 	}
+
+	@Override
+	public int getbyIdQuery(String ip) {
+		
+		return 0; //loginRepo.findAllWithID3(ip);
+	}
 	
 
 

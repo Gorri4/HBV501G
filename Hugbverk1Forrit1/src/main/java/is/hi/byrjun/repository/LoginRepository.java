@@ -16,8 +16,11 @@ public interface LoginRepository extends JpaRepository<Login, Long>{
 	
 	List<Login> findAll();
 	
-	@Query(value = "SELECT p FROM Login p where p.id = 3 ")
-    List<Login> findAllWithNameLongerThan3Chars();
+	/*
+	@Modifying
+	@Query(value = "SELECT p FROM Login WHERE p.userinn = :ID")
+    Login findAllWithID3(String ID);
+	*/
 	
 	Login findById(int i);
 	

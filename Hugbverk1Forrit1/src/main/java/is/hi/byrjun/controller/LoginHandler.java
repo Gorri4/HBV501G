@@ -46,7 +46,6 @@ public class LoginHandler {
     	String user = params.get(0);
     	String password = params.get(1);
     	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
-    	System.out.println(loginService.getbyId(1).getUser());
     	if (checkLoginInfo(notendur, user, password)) {
     		return "demo/Valmynd";
     	}
