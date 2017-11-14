@@ -113,11 +113,7 @@ public class SpurningaHandler {
     		return "demo/krossar";
     	}
     	//Ef rangt kemur sama spurning aftur
-<<<<<<< HEAD
     	model.addAttribute("selected", answers); // Svariï¿½ sem var valiï¿½
-=======
-    	model.addAttribute("selected", answers); // Svarið sem var valið
->>>>>>> origin/master
     	model.addAttribute("spurningin", spurningKrossar);
     	model.addAttribute("valmog1", svarmoguleiki1);
     	model.addAttribute("valmog2", svarmoguleiki2);
