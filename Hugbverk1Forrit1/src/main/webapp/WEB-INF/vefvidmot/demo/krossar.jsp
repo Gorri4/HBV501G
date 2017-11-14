@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<a href="Valmynd" class="exitBtn"> &times;</a>
+
 <h1>Krossar</h1>
 
 <form method="POST" action="krossar">
@@ -238,6 +240,16 @@ h1 {
   box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
   transition-property: none;
   pointer-events: none;
+}
+
+.exitBtn {
+  position: absolute; 
+  right: 25px; 
+  top: 0; 
+  color: #000; 
+  font-size: 35px; 
+  font-weight: bold; 
+  text-decoration: none;
 }
 
 @keyframes shake {

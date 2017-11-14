@@ -6,23 +6,19 @@
 <html lang="is">
 
 <head>
-    <title>Eyðufilling</title>
+    <title>Eyðufyllingar</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 </head>
 <body>
 
-<<<<<<< HEAD
+<a href="Valmynd" class="exitBtn"> &times;</a>
+
 <h1>Eyðufyllingar</h1>
 
 <form method="POST" action="eyduFyllingar">
 <div class="question"> Fill in the blanks <br><p class=spurningOrd>${spurningin}</p></div>
-=======
-<h1>Eyðufilling</h1>
 
-<form method="POST" action="eyduFyllingar">
-<div class="question">${spurningin}</div>
->>>>>>> origin/master
 <br>
 
 <div class="answers">
@@ -102,24 +98,19 @@ function click(e) {
 </script>
 
 <style>
-<<<<<<< HEAD
-.spurningOrd{
+.spurningOrd {
 	color:blue;
-}
-=======
->>>>>>> origin/master
-html {
-	box-sizing: border-box;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
-  /* fjarlÃ¦gjum margin og padding */
+  /* fjarlaegjum margin og padding */
   padding: 0;
   margin: 0;
 }
 
 html {
+  box-sizing: border-box;
   margin: 0;
   font-size: 16px;
   line-height: 1.5;
@@ -166,25 +157,6 @@ html {
 
 .answer-box {
   display: flex;
-<<<<<<< HEAD
-    max-width: 433px;
-    width: 100%;
-    margin-bottom: 20px;
-    text-align: center;
-    padding: 16px 4px;
-    overflow: hidden;
-    border: #cfcfcf;
-    background: #eaeaea;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    -webkit-box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    box-shadow: 0 3px 1px #b1b1b1, #fafafa 0 -1px 0;
-    font-size: 22pt;
-    cursor: pointer;
-    outline: none;
-=======
   max-width: 433px;
   width: 100%;
   margin-bottom: 20px;
@@ -207,7 +179,6 @@ html {
 
 .answer-box:hover {
   background: #aeaeae;
->>>>>>> origin/master
 }
 
 .answer-box label {
@@ -219,10 +190,7 @@ html {
 .answer-box.selected {
   background: rgb(132, 182, 35);
   outline: none;
-<<<<<<< HEAD
   border: rgb(132, 182, 35);
-=======
->>>>>>> origin/master
   box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
 }
 
@@ -231,11 +199,7 @@ input[type="radio"] {
 }
 
 input[type="submit"] {
-<<<<<<< HEAD
-  padding: 0.625em 0.3125em;
-=======
   padding: 0.325em 0.3125em;
->>>>>>> origin/master
   border: rgb(132, 182, 35);
   white-space: nowrap;
   overflow: hidden;
@@ -245,25 +209,17 @@ input[type="submit"] {
   cursor: pointer;
   text-decoration: none;
   margin: auto;
-<<<<<<< HEAD
-  background: rgb(132, 182, 35);
-  font-size: 2em;
-=======
   background: #84b623;
   font-size: 2.6em;
->>>>>>> origin/master
   max-width: 236px;
   width: 100%;
   text-align: center;
   border-radius: 4px;
-<<<<<<< HEAD
-=======
   transition: background 0.5s ease, color 0.5s ease;
 }
 
 input[type="submit"]:hover {
   background: #486b32;
->>>>>>> origin/master
 }
 
 h1 {
@@ -275,25 +231,26 @@ h1 {
 }
 
 .wrong {
-<<<<<<< HEAD
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) forwards;
-=======
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97);
->>>>>>> origin/master
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
   background: rgb(245, 38, 38);
-<<<<<<< HEAD
   border: rgb(245, 38, 38);
-  outline: none;
-  box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
-=======
   outline: none;
   box-shadow: 0 3px 1px #1b1b1b, #afafaf 0 -1px 0;
   transition-property: none;
   pointer-events: none;
->>>>>>> origin/master
+}
+
+.exitBtn {
+  position: absolute; 
+  right: 25px; 
+  top: 0; 
+  color: #000; 
+  font-size: 35px; 
+  font-weight: bold; 
+  text-decoration: none;
 }
 
 @keyframes shake {
