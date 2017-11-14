@@ -44,7 +44,6 @@ public class SpurningaHandler {
 	String svarmoguleiki3Eydu;
 	String svarmoguleiki4Eydu;
 	String rettSvarEydu;
-	
 	//Teljari sem er notaður sem ID spurninga
 	int i = 0;
 	int a = 0;
@@ -55,7 +54,6 @@ public class SpurningaHandler {
 	
 	//Fall sem nær í nýja spurningu
 	public void nySpurning(){
-
 		ArrayList<Spurningar> spurningalisti;
 		spurningalisti = (ArrayList)spurningaService.allarSpurningar();
 		spurningKrossar = spurningalisti.get(i).getSpurning();	
@@ -106,7 +104,6 @@ public class SpurningaHandler {
     		//Ef svarið er rétt hækkar teljari um einn og nær í nýja spurningu 
     		i++;
     		nySpurning();
-    		
     		model.addAttribute("spurningin", spurningKrossar);
         	model.addAttribute("valmog1", svarmoguleiki1);
         	model.addAttribute("valmog2", svarmoguleiki2);

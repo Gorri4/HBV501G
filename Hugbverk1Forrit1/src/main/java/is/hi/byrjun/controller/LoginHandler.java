@@ -14,13 +14,7 @@ import is.hi.byrjun.model.Login;
 import is.hi.byrjun.service.LoginService;
 import is.hi.byrjun.service.SpurningaService;
 
-/**
- * Klasi sem er nota�ur til a� sj� hvort notendanafn
- * og lykilor� s� r�tt.
- * 
- * @author Helgi
- *
- */
+
 
 @Controller
 @RequestMapping("/demo")
@@ -34,17 +28,17 @@ public class LoginHandler {
     
 	@RequestMapping(value="/Login", method=RequestMethod.GET)
     public String Login () {
-        System.out.println ("Login");
     	return "demo/Login";
     }
 	
 	@RequestMapping(value="/SignUp", method=RequestMethod.GET)
     public String SignUp () {
-        System.out.println ("SignUp");
     	return "demo/SignUp";
     }
 
-
+	public Login getcurrNotandi(){
+		return currNotandi;
+	}
 	
     //Fall sem athugar hvort Login sé rétt	
     @RequestMapping(value="/Login", method=RequestMethod.POST)
@@ -54,6 +48,7 @@ public class LoginHandler {
     	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
     	
     	if (checkLoginInfo(notendur, user, password)) {
+    		currNotandi = new Login(user,password);
     		return "demo/Valmynd";
     	}
     		return "demo/LoginRangt";	

@@ -12,9 +12,9 @@
 </head>
 <body>
 
-<h1>Krossar</h1>
+<h1>Eyðufyllingar</h1>
 
-<form method="POST" action="krossar">
+<form method="POST" action="eyduFyllingar">
 <div class="question"> Fill in the blanks <br><p class=spurningOrd>${spurningin}</p></div>
 <br>
 
