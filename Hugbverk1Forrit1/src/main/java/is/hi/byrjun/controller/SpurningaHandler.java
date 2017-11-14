@@ -116,7 +116,11 @@ public class SpurningaHandler {
     		return "demo/krossar";
     	}
     	//Ef rangt kemur sama spurning aftur
+<<<<<<< Updated upstream
     	model.addAttribute("selected", answers); // Svarið sem var valið
+=======
+    	model.addAttribute("selected", answers);
+>>>>>>> Stashed changes
     	model.addAttribute("spurningin", spurningKrossar);
     	model.addAttribute("valmog1", svarmoguleiki1);
     	model.addAttribute("valmog2", svarmoguleiki2);
