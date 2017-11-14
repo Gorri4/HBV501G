@@ -23,6 +23,7 @@ public class LoginHandler {
 	@Autowired
     LoginService loginService;
 	public Login currNotandi;
+	public SpurningaHandler spurnHandl;
 	
 	//Harðkóðuð gildi fyrir user-a og password þeirra
     

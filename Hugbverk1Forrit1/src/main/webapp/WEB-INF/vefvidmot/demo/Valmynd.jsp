@@ -26,6 +26,13 @@
 		margin-top: 25px;
 		margin-bottom: 25px;
 	}
+	.hiddendiv{
+		display:none;
+	}
+	
+	.disable{
+		background: rgb(245, 38, 38);
+	}
 </style>
 
 <body>
@@ -36,7 +43,7 @@
 				<h1 class="animate-top">Exercise 1</h1>
 				<h2 class="animate-top">Fruits</h2>
 				<hr>
-				<button type="submit" name="button" value="button1" class="btn btn-success">Start</button>
+				<button type="submit" name="button" value="button1" class="btn">Start</button>
 			</div>
 		</div>
 		<div class="row align-items-center">
@@ -44,7 +51,7 @@
 				<h1 class="animate-top">Exercise 2</h1>
 				<h2 class="animate-top">Numbers</h2>
 				<hr>
-				<button type="submit" name="button" value="button2" class="btn btn-success">Start</button>
+				<button type="submit" name="button" value="button2" class="btn">Start</button>
 			</div>
 		</div>
 		<div class="row align-items-center">
@@ -52,7 +59,7 @@
 				<h1 class="animate-top">Exercise 3</h1>
 				<h2 class="animate-top">Basic Phrases</h2>
 				<hr>
-				<button type="submit" name="button" value="button3" class="btn btn-success">Start</button>
+				<button type="submit" name="button" value="button3" class="btn">Start</button>
 			</div>
 		</div>
 		<div class="row align-items-center">
@@ -60,11 +67,31 @@
 				<h1 class="animate-top">Exercise 4</h1>
 				<h2 class="animate-top">Essential Pickup Lines</h2>
 				<hr>
-				<button type="submit" name="button" value="button4" class="btn btn-success">Start</button>
+				<button type="submit" name="button" value="button4" class="btn">Start</button>
 			</div>
 		</div>
 	</div>
 	</form>
+	<div class="hiddendiv">${i}</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script>
+		var buttons = [];
+		buttons = document.querySelectorAll("button");
+		if(document.querySelector(".hiddendiv").innerText === ""){
+			buttons[0].classList.add('btn-success');
+		}	
+		else{
+			var e = parseInt(document.querySelector(".hiddendiv").innerText);
+		}
+		console.log(e);
+		if(e < 13){
+			buttons[0].classList.add('btn-success');
+		}
+		if(e > 12){
+			buttons[0].classList.add('btn-success');
+			buttons[1].classList.add('btn-success');
+		}
+		
+	</script>
 </body>

@@ -45,7 +45,7 @@ public class SpurningaHandler {
 	String svarmoguleiki4Eydu;
 	String rettSvarEydu;
 	//Teljari sem er notaður sem ID spurninga
-	int i = 0;
+	int i = 3;
 	int a = 0;
 	
 	SpurningaHandler(){
@@ -131,7 +131,8 @@ public class SpurningaHandler {
     
     
     @RequestMapping("Valmynd")
-    public String Valmynd () {
+    public String Valmynd (Model model) {
+    	model.addAttribute("i", i);
     	return "demo/Valmynd";
     }
     
@@ -140,9 +141,10 @@ public class SpurningaHandler {
     public String hvadValmynd (@RequestParam(value="button", required=false)
     String button, ModelMap model) {
     	model.addAttribute("button", button);
+    	model.addAttribute("i", i);
     	if(button.equals("button1")){
-    			i=3;
     			nySpurning();
+    			model.addAttribute("i", i);
     	    	model.addAttribute("spurningin", spurningKrossar);
     	    	model.addAttribute("valmog1", svarmoguleiki1);
     	    	model.addAttribute("valmog2", svarmoguleiki2);
@@ -152,8 +154,8 @@ public class SpurningaHandler {
     	}
     	
     	if(button.equals("button2") && i > 12){
-    		i=13;
 			nySpurning();
+			model.addAttribute("i", i);
 	    	model.addAttribute("spurningin", spurningKrossar);
 	    	model.addAttribute("valmog1", svarmoguleiki1);
 	    	model.addAttribute("valmog2", svarmoguleiki2);
@@ -163,8 +165,8 @@ public class SpurningaHandler {
 	}
     	
     	if(button.equals("button3") && i > 22){
-    		i=23;
 			nySpurning();
+			model.addAttribute("i", i);
 	    	model.addAttribute("spurningin", spurningKrossar);
 	    	model.addAttribute("valmog1", svarmoguleiki1);
 	    	model.addAttribute("valmog2", svarmoguleiki2);
@@ -173,8 +175,8 @@ public class SpurningaHandler {
 	    	return "demo/krossar";
 	}
     	if(button.equals("button4")){
-    		i=30;
     	nySpurning();
+    	model.addAttribute("i", i);
     	model.addAttribute("spurningin", spurningEydu);
     	model.addAttribute("valmog1", svarmoguleiki1Eydu);
     	model.addAttribute("valmog2", svarmoguleiki2Eydu);
@@ -184,6 +186,7 @@ public class SpurningaHandler {
     }
     	return "demo/Valmynd";
    }
+    
     
     //Fall nær í eyðufyllingasíðu
 	@RequestMapping("eyduFyllingar")
