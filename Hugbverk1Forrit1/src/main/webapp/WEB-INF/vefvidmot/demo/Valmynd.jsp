@@ -38,6 +38,10 @@
 		width: 250px;
 	}
 
+	.btn {
+		cursor: pointer;
+	}
+
 </style>
 
 <body>
