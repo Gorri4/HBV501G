@@ -12,7 +12,7 @@
 <meta name="description" content="Learn Icelandic for Beginners">
 <meta name="keywords"
 	content="Icelandic, Beginners' Icelandic, Learn Icelandic">
-<meta name="author" content="Arn�r Kristmundsson">
+<meta name="author" content="Arn�r Kristmundsson">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -26,6 +26,7 @@
 		margin-top: 25px;
 		margin-bottom: 25px;
 	}
+<<<<<<< HEAD
 	.hiddendiv{
 		display:none;
 	}
@@ -53,6 +54,8 @@
 		cursor: pointer;
 	}
 
+=======
+>>>>>>> parent of aaa475c... Uppfærði útlitið á valmynd
 </style>
 
 <body>
@@ -60,6 +63,7 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-sm">
+<<<<<<< HEAD
 				<h1 class="animate-top">Multiple Choice Questions</h1>
 				<div class="block">
 					<h2 class="animate-top">Fruits</h2>
@@ -76,10 +80,17 @@
 					<hr>
 					<button type="submit" name="button" value="button3" class="btn">Start</button>
 			  </div>
+=======
+				<h1 class="animate-top">Exercise 1</h1>
+				<h2 class="animate-top">Fruits</h2>
+				<hr>
+				<button type="submit" name="button" value="button1" class="btn btn-success">Start</button>
+>>>>>>> parent of aaa475c... Uppfærði útlitið á valmynd
 			</div>
 		</div>
 		<div class="row align-items-center">
 			<div class="col-sm">
+<<<<<<< HEAD
 				<h1 class="animate-top">Fill in the right word</h1>
 				<div class="block">
 					<h2 class="animate-top">Nouns</h2>
@@ -91,15 +102,36 @@
 					<hr>
 					<button type="submit" name="button" value="button5" class="btn">Start</button>
 				</div>
+=======
+				<h1 class="animate-top">Exercise 2</h1>
+				<h2 class="animate-top">Numbers</h2>
+				<hr>
+				<button type="submit" name="button" value="button2" class="btn btn-success">Start</button>
 			</div>
 		</div>
-
-
+		<div class="row align-items-center">
+			<div class="col-sm">
+				<h1 class="animate-top">Exercise 3</h1>
+				<h2 class="animate-top">Basic Phrases</h2>
+				<hr>
+				<button type="submit" name="button" value="button3" class="btn btn-success">Start</button>
+			</div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-sm">
+				<h1 class="animate-top">Exercise 4</h1>
+				<h2 class="animate-top">Essential Pickup Lines</h2>
+				<hr>
+				<button type="submit" name="button" value="button4" class="btn btn-success">Start</button>
+>>>>>>> parent of aaa475c... Uppfærði útlitið á valmynd
+			</div>
+		</div>
 	</div>
 	</form>
 	<div class="hiddendiv">${i}</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<<<<<<< HEAD
 	<script>
 		var buttons = [];
 		buttons = document.querySelectorAll("button");
@@ -132,3 +164,6 @@
 		}
 	</script>
 </body>
+=======
+</body>
+>>>>>>> parent of aaa475c... Uppfærði útlitið á valmynd
