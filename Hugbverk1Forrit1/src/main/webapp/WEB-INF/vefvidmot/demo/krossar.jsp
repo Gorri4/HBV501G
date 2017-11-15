@@ -61,11 +61,8 @@ var labels;
 
 document.addEventListener("DOMContentLoaded", function(event) {
   buttons = document.querySelectorAll('.answer-box');
-  console.log(buttons);
   checkmarks = document.querySelectorAll('input[type="radio"]');
-  console.log(checkmarks);
   labels = document.querySelectorAll('label');
-  console.log(labels);
   var selected = document.querySelector('.selected-button');
 
   for (var i = 0; i < buttons.length; i++) {
@@ -79,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function click(e) {
   e.preventDefault();
   var i;
-  console.log(e);
   // Setja checked á takkan sem ýtt var á, annars ekki checked
   for (i = 0; i < buttons.length; i++) {
     if (e.target === buttons[i] || e.target === labels[i]) {
@@ -90,7 +86,6 @@ function click(e) {
       buttons[i].classList.remove("selected");
     }
   }
-  console.log(checkmarks);
 }
 
 
