@@ -16,17 +16,24 @@ import is.hi.byrjun.service.SpurningaService;
 
 
 
+/**
+ * @author gudmundurorripalsson
+ * LoginHandler sækir Login og Signup síður og
+ * sér um að vinna úr inntaki notenda þegar þeir skrá sig inn eða búa til nýjan notenda
+ * Klasinn athugar hvort notandinn sé til og hvort lykilorð passi. Ef svo er sendir hann 
+ * notendann yfir á valmyndasíðu.
+ *
+ */
 @Controller
 @RequestMapping("/demo")
 public class LoginHandler {
 	
 	@Autowired
     LoginService loginService;
-	public Login currNotandi;
 	public SpurningaHandler spurnHandl;
 	
-	//Harðkóðuð gildi fyrir user-a og password þeirra
-    int a = 1;
+    int a = 1; //Gildi sem er sent á útlitið í byrjun
+    
 	@RequestMapping(value="/Login", method=RequestMethod.GET)
     public String Login () {
     	return "demo/Login";
@@ -36,14 +43,14 @@ public class LoginHandler {
     public String SignUp () {
     	return "demo/SignUp";
     }
-
-	public Login getcurrNotandi() {
-		return currNotandi;
-	}
 	
-    //Fall sem athugar hvort Login sé rétt	
+    
+    /**
+     * Fall sem sækir upplýsingar frá notenda og sendir hann yfir á Valmynd ef upplýsingar
+     * passa við gagnagrunn. Annars fær hann villumeldingu.
+     *
+     */
     @RequestMapping(value="/Login", method=RequestMethod.POST)
-
     public String login (@RequestParam("loginInfo") List<String> params, ModelMap model) {
     	String user = params.get(0);
     	String password = params.get(1);
@@ -56,6 +63,10 @@ public class LoginHandler {
     	return "demo/FrontPage";	
     }
     
+    /**
+     * Fall sem sækir upplýsingar notenda og bætir við gagnagrunn við nýskráningu.
+     * @return FrontPage
+     */
     @RequestMapping(value="/SignUp", method=RequestMethod.POST)
     public String signUp (@RequestParam("signupInfo") List<String> params) {
     	String user = params.get(1);
@@ -93,6 +104,15 @@ public class LoginHandler {
 			return false;	
 	}
 	
+	/**
+	 * 
+	 * @param notandi
+	 * @param password
+	 * @param email
+	 * 
+	 * Bætir notanda við gagnagrunn 
+	 */
+	
 	public void addNotandi(String notandi, String password,String email){
 		Login notandinn = new Login(notandi,password,email);
 		loginService.addNotandi(notandinn);
@@ -104,7 +124,14 @@ public class LoginHandler {
     	return "demo/FrontPage";
     }
     
-    //Fall sem sér um val á æfingu
+    /**
+     * 
+     * @param button
+     * @param model
+     * @return 
+     * 
+     * Fall sem sækir Login og SignUp form eftir því hvaða takki er valinn
+     */
     @RequestMapping(value="/FrontPage", method=RequestMethod.POST)
     public String hvadValmynd (@RequestParam(value="button", required=false)
     String button, ModelMap model) {

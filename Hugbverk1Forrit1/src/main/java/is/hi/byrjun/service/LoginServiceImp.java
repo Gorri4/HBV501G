@@ -16,7 +16,7 @@ public class LoginServiceImp implements LoginService {
     @Autowired
     LoginRepository loginRepo;
 	
-    
+    //Aðferðir sem eru skilgreindar í LoginService
 	@Override
 	public void addNotandi(Login k) {
 		loginRepo.save(k);
@@ -29,7 +29,6 @@ public class LoginServiceImp implements LoginService {
 
 	@Override
 	public Login save(Login notandi) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -38,13 +37,10 @@ public class LoginServiceImp implements LoginService {
 		return loginRepo.findById(i);
 	}
 
+/*
 	@Override
-	public int getbyIdQuery(String ip) {
-		
-		return 0; //loginRepo.findAllWithID3(ip);
+	public Login changeValue(int a, String b) {
+		return loginRepo.findAllWithID3(a, b);
 	}
-	
-
-
-
+*/
 }

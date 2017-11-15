@@ -4,35 +4,26 @@ import java.util.*;
 
 import is.hi.byrjun.model.Login;
 import is.hi.byrjun.model.Spurningar;
-
+/**
+ * 
+ * @author gudmundurorripalsson
+ * 	Interface sem SpurningaServiceImp implentar
+ */
 public interface SpurningaService {
 
-    /**
-     * Athugar hvort nafn er á réttu formi, þ.e. verða að vera a.m.k. tvö orð.
-     *
-     * @param nafn
-     * @return skilar satt ef nafn er á réttu formi annars ósatt
-     */
+	//Athugar hvort nafn sé á rétti formi
     public boolean erNafnRett(String nafn);
-
-    /**
-     * Bætir við kennara í kennariRep
-     *
-     * @param k Kennari
-     */
+    
+    //Bætir við spurningu í gagnagrunn
     public void addSpurning(Spurningar k);
 
-    /**
-     * Skilar öllum kennurum í kennariRep
-     *
-     * @return listi af kennurum
-     */
+    //Sækir allar spurningarnar í gagnagrunn	
     public List<Spurningar> allarSpurningar();
     
+    //Vistar spurningu í gagnagrunn
      public Spurningar save(Spurningar spurningar);
-          
-     public List<Spurningar> finnaAlla3Stafi();
      
+     //Sækir Spurningu út frá ID
      public Spurningar getbyId(int i);
              
 }

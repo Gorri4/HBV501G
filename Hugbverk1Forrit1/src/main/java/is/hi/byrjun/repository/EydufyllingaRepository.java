@@ -7,7 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import is.hi.byrjun.model.Eydufyllingar;
 import is.hi.byrjun.model.Spurningar;
-
+/**
+ * 
+ * @author gudmundurorripalsson
+ * Repository Interface fyrir Eyðufyllingagagnagrunn
+ */
 @Repository
 public interface EydufyllingaRepository extends JpaRepository<Eydufyllingar, Long>{
 	

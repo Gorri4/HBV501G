@@ -6,15 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.*;
-
-
+/**
+ * 
+ * @author gudmundurorripalsson
+ *	Módel klasi fyrir Login
+ */
 @Entity
 @Table (name="Login")
 public class Login {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//breta
 	private int id;
 	@NotNull
 	private String userinn;
@@ -22,8 +24,6 @@ public class Login {
 	private String password;
 	private String email;
 
-	
-	//Smiður fyrir spurningaklasann
 	public Login(String userinn, String password,String email) {
 		this.userinn = userinn;
 		this.password = password;
@@ -34,8 +34,6 @@ public class Login {
 		
 	}
 	
-
-	//föll sem ná í breytur hluta af klasanum
 	public String getUser(){
 		return userinn;
 	}

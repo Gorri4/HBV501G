@@ -18,7 +18,7 @@ import is.hi.byrjun.service.EydufyllingaService;
 import is.hi.byrjun.service.SpurningaService;
  
 /**
- * Byrjunarcontroller sem stýrir hvað er gert þegar notandi eða viðmót
+ * SpurningaHandler sem stýrir hvað er gert þegar notandi eða viðmót
  * setur inn skipun 
  */
 
@@ -26,7 +26,7 @@ import is.hi.byrjun.service.SpurningaService;
 @RequestMapping("/demo") // Request Mapping er gerð fyrir klasann til að slóðin byrji á /demo fyrir allar skipanir 
 public class SpurningaHandler {
 	
-    // Tenging yfir í þjónustu klasa fyrir góðan daginn forritið 
+    // Tenging yfir í þjónustu klasa fyrir forritið 
 	@Autowired
     SpurningaService spurningaService;
 	@Autowired
@@ -44,17 +44,28 @@ public class SpurningaHandler {
 	String svarmoguleiki3Eydu;
 	String svarmoguleiki4Eydu;
 	String rettSvarEydu;
+	
 	//Teljari sem er notaður sem ID spurninga
 	int i = 3;
 	int s = 3;
+	//Teljari fyrir heildarfjölda rétt svaraðra spurninga notenda
 	int a = 3;
+	//Boolena breyta sem segir til um hvort spurningin er krossaspurning eða ekki
 	boolean kross;
 	
+	
 	SpurningaHandler(){
-		
+
 	}
 	
-	//Fall sem nær í nýja spurningu
+	/**
+	 * 
+	 * @param a
+	 * @return boolean
+	 * 
+	 * Fall sem sækir nýja spurningu í gagnagrunn, ef spurningin fannst skilar fallir true annars false
+	 */
+	
 	public boolean nySpurning(boolean a){
 		if(a){
 		try{
@@ -113,8 +124,9 @@ public class SpurningaHandler {
     public String hvader (@RequestParam(value="answers", required=false)
     String answers, ModelMap model) {
     	model.addAttribute("answers", answers);
-    	if (answers.equals(rettSvar)) {  	
-    		//Ef svarið er rétt hækkar teljari um einn og nær í nýja spurningu 
+    	try{
+    	if (answers.equals(rettSvar)) {
+    		//Notandi getur ekki svarað sömu spurningunni aftur og komist lengra á þann hátt
     		if(i >= a){
     			a++;
     		}
@@ -145,15 +157,26 @@ public class SpurningaHandler {
     			return "demo/Valmynd";
     		}
     	}
+    	}
+    	//Bregst við ef notandi velur engann valmöguleika og svo submit
+    	catch(NullPointerException e){ 
+        	model.addAttribute("spurningin", spurningKrossar);
+        	model.addAttribute("valmog1", svarmoguleiki1);
+        	model.addAttribute("valmog2", svarmoguleiki2);
+        	model.addAttribute("valmog3", svarmoguleiki3);
+        	model.addAttribute("valmog4", svarmoguleiki4);
+        	return "demo/krossar";
+		}
     	//Ef rangt kemur sama spurning aftur
-    	model.addAttribute("selected", answers); // Svari� sem var vali�
+    	model.addAttribute("selected", answers); 
     	model.addAttribute("spurningin", spurningKrossar);
     	model.addAttribute("valmog1", svarmoguleiki1);
     	model.addAttribute("valmog2", svarmoguleiki2);
     	model.addAttribute("valmog3", svarmoguleiki3);
     	model.addAttribute("valmog4", svarmoguleiki4);
     	return "demo/krossar";
-    }
+    	}
+    	
     
     
     
@@ -281,6 +304,7 @@ public class SpurningaHandler {
     public String eyduFyll (@RequestParam(value="answers", required=false)
     String answers, ModelMap model) {
     	model.addAttribute("answers", answers);
+    	try{
     	if (answers.equals(rettSvarEydu)) {
     		a++;
     		s++;
@@ -299,7 +323,17 @@ public class SpurningaHandler {
     			return "demo/Valmynd";
     		}
     	}
-    	else{
+    	}
+    	//Bregst við ef notandinn velur ekkert og smellir á submit
+    	catch(NullPointerException e){
+    		model.addAttribute("spurningin", spurningEydu);
+    		model.addAttribute("valmog1", svarmoguleiki1Eydu);
+    		model.addAttribute("valmog2", svarmoguleiki2Eydu);
+    		model.addAttribute("valmog3", svarmoguleiki3Eydu);
+    		model.addAttribute("valmog4", svarmoguleiki4Eydu);
+    		return "demo/eyduFyllingar";
+		}
+    	//Ef svarið var vitlaust
     		model.addAttribute("selected", answers);
     		model.addAttribute("spurningin", spurningEydu);
     		model.addAttribute("valmog1", svarmoguleiki1Eydu);
@@ -309,8 +343,3 @@ public class SpurningaHandler {
     		return "demo/eyduFyllingar";
     	}
     }
-    
-    
-
-    
-}

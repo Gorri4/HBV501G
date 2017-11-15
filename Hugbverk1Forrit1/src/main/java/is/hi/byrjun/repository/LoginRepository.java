@@ -8,7 +8,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import is.hi.byrjun.model.Login;
-
+/**
+ * 
+ * @author gudmundurorripalsson
+ *	LoginRepositry interface fyrir Login gagnagrunn
+ */
 @Repository
 public interface LoginRepository extends JpaRepository<Login, Long>{
 	
@@ -18,8 +22,8 @@ public interface LoginRepository extends JpaRepository<Login, Long>{
 	
 	/*
 	@Modifying
-	@Query(value = "SELECT p FROM Login WHERE p.userinn = :ID")
-    Login findAllWithID3(String ID);
+	@Query("update Login p set p.krossar=:ID where p.userinn=:User")
+    Login findAllWithID3(int ID,String User);
 	*/
 	
 	Login findById(int i);

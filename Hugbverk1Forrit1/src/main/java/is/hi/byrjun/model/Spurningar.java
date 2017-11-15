@@ -5,7 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author gudmundurorripalsson
+ *	Módel klasi fyrir Krossaspurningar
+ */
 @Entity
 @Table (name="Spurningar")
 public class Spurningar {

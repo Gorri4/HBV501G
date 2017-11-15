@@ -5,14 +5,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+/**
+ * 
+ * @author gudmundurorripalsson
+ *	Módel klasi fyrir Eyðufyllingar
+ */
 @Entity
 @Table (name="Eydufyllingar")
 public class Eydufyllingar {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//breta
 	private int id;
 	private String spurningEydu;
 	private String svarmog1Eydu;
@@ -21,8 +24,6 @@ public class Eydufyllingar {
 	private String svarmog4Eydu;
 	private String rettSvarEydu;
 
-	
-	//Smiður fyrir spurningaklasann
 	public Eydufyllingar(String spurningEydu, String svarmog1Eydu, String svarmog2Eydu, String svarmog3Eydu, String svarmog4Eydu, String rettSvarEydu) {
 		this.spurningEydu = spurningEydu;
 		this.svarmog1Eydu = svarmog1Eydu;
@@ -36,7 +37,6 @@ public class Eydufyllingar {
 		
 	}
 	
-	//föll sem ná í breytur hluta af klasanum
 	public String getSpurning(){
 		return spurningEydu;
 	}
