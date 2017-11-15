@@ -26,7 +26,7 @@ public class LoginHandler {
 	public SpurningaHandler spurnHandl;
 	
 	//Harðkóðuð gildi fyrir user-a og password þeirra
-    
+    int a = 1;
 	@RequestMapping(value="/Login", method=RequestMethod.GET)
     public String Login () {
     	return "demo/Login";
@@ -43,11 +43,12 @@ public class LoginHandler {
 	
     //Fall sem athugar hvort Login sé rétt	
     @RequestMapping(value="/Login", method=RequestMethod.POST)
-    public String login (@RequestParam("loginInfo") List<String> params) {
+    public String login (@RequestParam("loginInfo") List<String> params,ModelMap model) {
     	String user = params.get(0);
     	String password = params.get(1);
     	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
     	if (checkLoginInfo(notendur, user, password)) {
+    		model.addAttribute("i", a);
     		return "demo/Valmynd";
     	}
     		return "demo/LoginRangt";	

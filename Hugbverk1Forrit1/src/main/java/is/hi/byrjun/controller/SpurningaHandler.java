@@ -46,6 +46,7 @@ public class SpurningaHandler {
 	String rettSvarEydu;
 	//Teljari sem er notaður sem ID spurninga
 	int i = 3;
+	int s = 3;
 	int a = 3;
 	boolean kross;
 	
@@ -72,7 +73,7 @@ public class SpurningaHandler {
 		}
 		else{
 			try{
-		Eydufyllingar spurninginEydu = eydufyllingaService.getbyId(i); 
+		Eydufyllingar spurninginEydu = eydufyllingaService.getbyId(s); 
 		spurningEydu = spurninginEydu.getSpurning();
 		svarmoguleiki1Eydu = spurninginEydu.getSvarmog1();
 		svarmoguleiki2Eydu = spurninginEydu.getSvarmog2();
@@ -114,9 +115,23 @@ public class SpurningaHandler {
     	model.addAttribute("answers", answers);
     	if (answers.equals(rettSvar)) {  	
     		//Ef svarið er rétt hækkar teljari um einn og nær í nýja spurningu 
+    		if(i >= a){
+    			a++;
+    		}
     		i++;
-    		a++;
     		kross = true;
+    		if(i == 12 || i == 22 || i==32){
+    			i++;
+    			a++;
+    			model.addAttribute("i", a);
+    			return "demo/Valmynd";
+    		}
+    		if(s == 20){
+    			s++;
+    			a++;
+    			model.addAttribute("i", a);
+    			return "demo/Valmynd";
+    		}
     		if(nySpurning(kross)){
     		model.addAttribute("spurningin", spurningKrossar);
         	model.addAttribute("valmog1", svarmoguleiki1);
@@ -155,10 +170,8 @@ public class SpurningaHandler {
     	model.addAttribute("button", button);
     	model.addAttribute("i", a);
     	if(button.equals("button1")){
-    			System.out.println("Velur takka 1 ");
     			i=3;
     			kross = true;
-    			System.out.println(nySpurning(kross));
     			if(nySpurning(kross)){
     	    	model.addAttribute("spurningin", spurningKrossar);
     	    	model.addAttribute("valmog1", svarmoguleiki1);
@@ -208,7 +221,7 @@ public class SpurningaHandler {
 	}
     	
     	if(button.equals("button4") && a > 31){
-    		i=1;
+    		s=1;
     		kross = false;
 			if(nySpurning(kross)){
 	    	model.addAttribute("spurningin", spurningEydu);
@@ -224,7 +237,7 @@ public class SpurningaHandler {
 			}
 	}
     	if(button.equals("button5") && a > 51){
-    	i=21;
+    	s=21;
     	kross = false;
     	if(nySpurning(kross)){
     	model.addAttribute("spurningin", spurningEydu);
@@ -246,7 +259,7 @@ public class SpurningaHandler {
     //Fall nær í eyðufyllingasíðu
 	@RequestMapping("eyduFyllingar")
     public String eyduFyllingar (Model model) {
-		Eydufyllingar spurninginEydu = eydufyllingaService.getbyId(i); 
+		Eydufyllingar spurninginEydu = eydufyllingaService.getbyId(s); 
 		spurningEydu = spurninginEydu.getSpurning();
 		svarmoguleiki1Eydu = spurninginEydu.getSvarmog1();
 		svarmoguleiki2Eydu = spurninginEydu.getSvarmog2();
@@ -270,7 +283,7 @@ public class SpurningaHandler {
     	model.addAttribute("answers", answers);
     	if (answers.equals(rettSvarEydu)) {
     		a++;
-    		i++;
+    		s++;
     		kross = false;
     		if(nySpurning(kross)){
     		model.addAttribute("spurningin", spurningEydu);

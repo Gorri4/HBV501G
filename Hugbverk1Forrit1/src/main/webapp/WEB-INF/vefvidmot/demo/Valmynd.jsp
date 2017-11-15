@@ -26,7 +26,6 @@
 		margin-top: 25px;
 		margin-bottom: 25px;
 	}
-<<<<<<< HEAD
 	.hiddendiv{
 		display:none;
 	}
@@ -53,9 +52,6 @@
 	.btn {
 		cursor: pointer;
 	}
-
-=======
->>>>>>> parent of aaa475c... Uppfærði útlitið á valmynd
 </style>
 
 <body>
@@ -63,7 +59,6 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-sm">
-<<<<<<< HEAD
 				<h1 class="animate-top">Multiple Choice Questions</h1>
 				<div class="block">
 					<h2 class="animate-top">Fruits</h2>
@@ -80,17 +75,10 @@
 					<hr>
 					<button type="submit" name="button" value="button3" class="btn">Start</button>
 			  </div>
-=======
-				<h1 class="animate-top">Exercise 1</h1>
-				<h2 class="animate-top">Fruits</h2>
-				<hr>
-				<button type="submit" name="button" value="button1" class="btn btn-success">Start</button>
->>>>>>> parent of aaa475c... Uppfærði útlitið á valmynd
 			</div>
 		</div>
 		<div class="row align-items-center">
 			<div class="col-sm">
-<<<<<<< HEAD
 				<h1 class="animate-top">Fill in the right word</h1>
 				<div class="block">
 					<h2 class="animate-top">Nouns</h2>
@@ -102,36 +90,14 @@
 					<hr>
 					<button type="submit" name="button" value="button5" class="btn">Start</button>
 				</div>
-=======
-				<h1 class="animate-top">Exercise 2</h1>
-				<h2 class="animate-top">Numbers</h2>
-				<hr>
-				<button type="submit" name="button" value="button2" class="btn btn-success">Start</button>
 			</div>
 		</div>
-		<div class="row align-items-center">
-			<div class="col-sm">
-				<h1 class="animate-top">Exercise 3</h1>
-				<h2 class="animate-top">Basic Phrases</h2>
-				<hr>
-				<button type="submit" name="button" value="button3" class="btn btn-success">Start</button>
-			</div>
-		</div>
-		<div class="row align-items-center">
-			<div class="col-sm">
-				<h1 class="animate-top">Exercise 4</h1>
-				<h2 class="animate-top">Essential Pickup Lines</h2>
-				<hr>
-				<button type="submit" name="button" value="button4" class="btn btn-success">Start</button>
->>>>>>> parent of aaa475c... Uppfærði útlitið á valmynd
-			</div>
-		</div>
-	</div>
+	   </div>
 	</form>
 	<div class="hiddendiv">${i}</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<<<<<<< HEAD
+
 	<script>
 		var buttons = [];
 		buttons = document.querySelectorAll("button");
@@ -140,22 +106,22 @@
 		if(e < 13){
 			buttons[0].classList.add('btn-success');
 		}
-		if(e > 12){
+		if(e >= 12){
 			buttons[0].classList.add('btn-success');
 			buttons[1].classList.add('btn-success');
 		}
-		if(e > 22){
+		if(e >= 22){
 			buttons[0].classList.add('btn-success');
 			buttons[1].classList.add('btn-success');
 			buttons[2].classList.add('btn-success');
 		}
-		if(e > 31){
+		if(e >= 31){
 			buttons[0].classList.add('btn-success');
 			buttons[1].classList.add('btn-success');
 			buttons[2].classList.add('btn-success');
 			buttons[3].classList.add('btn-success');
 		}
-		if(e > 52){
+		if(e >= 52){
 			buttons[0].classList.add('btn-success');
 			buttons[1].classList.add('btn-success');
 			buttons[2].classList.add('btn-success');
@@ -164,6 +130,3 @@
 		}
 	</script>
 </body>
-=======
-</body>
->>>>>>> parent of aaa475c... Uppfærði útlitið á valmynd
