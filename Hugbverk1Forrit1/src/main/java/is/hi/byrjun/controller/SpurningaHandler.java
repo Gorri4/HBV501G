@@ -47,13 +47,15 @@ public class SpurningaHandler {
 	//Teljari sem er notaður sem ID spurninga
 	int i = 3;
 	int a = 3;
+	boolean kross;
 	
 	SpurningaHandler(){
 		
 	}
 	
 	//Fall sem nær í nýja spurningu
-	public boolean nySpurning(){
+	public boolean nySpurning(boolean a){
+		if(a){
 		try{
 		Spurningar spurning = spurningaService.getbyId(i);
 		spurningKrossar = spurning.getSpurning();
@@ -62,7 +64,14 @@ public class SpurningaHandler {
 		svarmoguleiki3 = spurning.getSvarmog3();
 		svarmoguleiki4 = spurning.getSvarmog4();
 		rettSvar = spurning.getrettSvar();
-		
+		return true;
+		}
+		catch(NullPointerException e){
+			return false;
+		}
+		}
+		else{
+			try{
 		Eydufyllingar spurninginEydu = eydufyllingaService.getbyId(i); 
 		spurningEydu = spurninginEydu.getSpurning();
 		svarmoguleiki1Eydu = spurninginEydu.getSvarmog1();
@@ -75,6 +84,7 @@ public class SpurningaHandler {
 		catch(NullPointerException e){
 			return false;
 		}
+	  }
 	}
 	
 	//Sækir síðuna /krossar og setur inn gildi á viðeigandi stað
@@ -106,13 +116,13 @@ public class SpurningaHandler {
     		//Ef svarið er rétt hækkar teljari um einn og nær í nýja spurningu 
     		i++;
     		a++;
-    		if(nySpurning()){
+    		kross = true;
+    		if(nySpurning(kross)){
     		model.addAttribute("spurningin", spurningKrossar);
         	model.addAttribute("valmog1", svarmoguleiki1);
         	model.addAttribute("valmog2", svarmoguleiki2);
         	model.addAttribute("valmog3", svarmoguleiki3);
         	model.addAttribute("valmog4", svarmoguleiki4);
-        	
     		return "demo/krossar";
     		}
     		else{
@@ -145,9 +155,11 @@ public class SpurningaHandler {
     	model.addAttribute("button", button);
     	model.addAttribute("i", a);
     	if(button.equals("button1")){
+    			System.out.println("Velur takka 1 ");
     			i=3;
-    			
-    			if(nySpurning()){
+    			kross = true;
+    			System.out.println(nySpurning(kross));
+    			if(nySpurning(kross)){
     	    	model.addAttribute("spurningin", spurningKrossar);
     	    	model.addAttribute("valmog1", svarmoguleiki1);
     	    	model.addAttribute("valmog2", svarmoguleiki2);
@@ -163,7 +175,8 @@ public class SpurningaHandler {
     	
     	if(button.equals("button2") && a > 12){
     		i=13;
-    		if(nySpurning()){
+    		kross = true;
+    		if(nySpurning(kross)){
     	    	model.addAttribute("spurningin", spurningKrossar);
     	    	model.addAttribute("valmog1", svarmoguleiki1);
     	    	model.addAttribute("valmog2", svarmoguleiki2);
@@ -179,7 +192,8 @@ public class SpurningaHandler {
     	
     	if(button.equals("button3") && a > 22){
     		i=23;
-    		if(nySpurning()){
+    		kross = true;
+    		if(nySpurning(kross)){
     	    	model.addAttribute("spurningin", spurningKrossar);
     	    	model.addAttribute("valmog1", svarmoguleiki1);
     	    	model.addAttribute("valmog2", svarmoguleiki2);
@@ -195,7 +209,8 @@ public class SpurningaHandler {
     	
     	if(button.equals("button4") && a > 31){
     		i=1;
-			if(nySpurning()){
+    		kross = false;
+			if(nySpurning(kross)){
 	    	model.addAttribute("spurningin", spurningEydu);
 	    	model.addAttribute("valmog1", svarmoguleiki1Eydu);
 	    	model.addAttribute("valmog2", svarmoguleiki2Eydu);
@@ -210,7 +225,8 @@ public class SpurningaHandler {
 	}
     	if(button.equals("button5") && a > 51){
     	i=21;
-    	if(nySpurning()){
+    	kross = false;
+    	if(nySpurning(kross)){
     	model.addAttribute("spurningin", spurningEydu);
     	model.addAttribute("valmog1", svarmoguleiki1Eydu);
     	model.addAttribute("valmog2", svarmoguleiki2Eydu);
@@ -255,7 +271,8 @@ public class SpurningaHandler {
     	if (answers.equals(rettSvarEydu)) {
     		a++;
     		i++;
-    		if(nySpurning()){
+    		kross = false;
+    		if(nySpurning(kross)){
     		model.addAttribute("spurningin", spurningEydu);
     		model.addAttribute("valmog1", svarmoguleiki1Eydu);
         	model.addAttribute("valmog2", svarmoguleiki2Eydu);
