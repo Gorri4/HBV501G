@@ -286,6 +286,13 @@
         	font-size: 18px;
         	text-align: center;
         }
+        
+        .wrongLogin {
+        	display: none;
+        }
+        .loginWrongText {
+        	color: red;
+        }
 	</style>
 
 	<!--link rel="stylesheet" href="style.css"-->
@@ -298,6 +305,7 @@
 				<button class="openModal" id="openLoginForm">Login</button>
 				<button class="openModal" id="openSignupForm">Signup</button>
 			</div>
+			<div class="wrongLogin">${wrongLogin}</div>
 		</div>
 
 		<div class="modalForm" id="loginForm">
@@ -377,6 +385,17 @@
 
 			// Get the modalSignupForm
 			var signupForm = document.getElementById('signupForm');
+			
+			// Ná í gildið sem segir til hvort reynt var að logga inn og það tókst ekki
+			var wrongLogin = document.querySelector('.wrongLogin');
+			if (wrongLogin.innerText === "true") {
+				loginForm.style.display = "block";
+				var loginFormBody = document.querySelector('#loginForm .formbody');
+				var p = document.createElement('p');
+				p.classList.add('loginWrongText');
+				p.appendChild(document.createTextNode('Wrong login credentials'));
+				loginFormBody.appendChild(p);
+			}
 
 			openForm = function(form){
 				form.style.display = "block";

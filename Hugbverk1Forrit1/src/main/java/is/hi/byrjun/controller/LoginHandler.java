@@ -37,20 +37,21 @@ public class LoginHandler {
     	return "demo/SignUp";
     }
 
-	public Login getcurrNotandi(){
+	public Login getcurrNotandi() {
 		return currNotandi;
 	}
 	
     //Fall sem athugar hvort Login sé rétt	
     @RequestMapping(value="/Login", method=RequestMethod.POST)
-    public String login (@RequestParam("loginInfo") List<String> params) {
+    public String login (@RequestParam("loginInfo") List<String> params, ModelMap model) {
     	String user = params.get(0);
     	String password = params.get(1);
     	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
     	if (checkLoginInfo(notendur, user, password)) {
     		return "demo/Valmynd";
     	}
-    		return "demo/LoginRangt";	
+    	model.addAttribute("wrongLogin", true);
+    	return "demo/FrontPage";	
     }
     
     @RequestMapping(value="/SignUp", method=RequestMethod.POST)
