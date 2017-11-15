@@ -56,6 +56,7 @@ public class LoginHandler {
     	String password = params.get(1);
     	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();
     	if (checkLoginInfo(notendur, user, password)) {
+    		SpurningaHandler.resetA();
     		model.addAttribute("i", a);
     		return "demo/Valmynd";
     	}

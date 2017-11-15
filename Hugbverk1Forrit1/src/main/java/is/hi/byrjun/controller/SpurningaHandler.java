@@ -49,13 +49,19 @@ public class SpurningaHandler {
 	int i = 3;
 	int s = 3;
 	//Teljari fyrir heildarfjölda rétt svaraðra spurninga notenda
-	int a = 3;
+	static int a = 3;
 	//Boolena breyta sem segir til um hvort spurningin er krossaspurning eða ekki
 	boolean kross;
 	
 	
 	SpurningaHandler(){
 
+	}
+	
+	public static void resetA(){
+		System.out.println("Gorr");
+		a = 3;
+		System.out.println(a);
 	}
 	
 	/**
@@ -134,12 +140,6 @@ public class SpurningaHandler {
     		kross = true;
     		if(i == 12 || i == 22 || i==32){
     			i++;
-    			a++;
-    			model.addAttribute("i", a);
-    			return "demo/Valmynd";
-    		}
-    		if(s == 20){
-    			s++;
     			a++;
     			model.addAttribute("i", a);
     			return "demo/Valmynd";
@@ -309,6 +309,12 @@ public class SpurningaHandler {
     		a++;
     		s++;
     		kross = false;
+    		if(s == 20){
+    			s++;
+    			a++;
+    			model.addAttribute("i", a);
+    			return "demo/Valmynd";
+    		}
     		if(nySpurning(kross)){
     		model.addAttribute("spurningin", spurningEydu);
     		model.addAttribute("valmog1", svarmoguleiki1Eydu);
