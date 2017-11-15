@@ -38,6 +38,10 @@
 		width: 250px;
 	}
 
+	.col-sm{
+		text-align: center;
+	}
+
 </style>
 
 <body>
