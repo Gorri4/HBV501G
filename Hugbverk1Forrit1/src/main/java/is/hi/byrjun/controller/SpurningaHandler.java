@@ -253,11 +253,9 @@ public class SpurningaHandler {
     String answers, ModelMap model) {
     	model.addAttribute("answers", answers);
     	if (answers.equals(rettSvarEydu)) {
-    		
     		a++;
     		i++;
     		if(nySpurning()){
-    		
     		model.addAttribute("spurningin", spurningEydu);
     		model.addAttribute("valmog1", svarmoguleiki1Eydu);
         	model.addAttribute("valmog2", svarmoguleiki2Eydu);
