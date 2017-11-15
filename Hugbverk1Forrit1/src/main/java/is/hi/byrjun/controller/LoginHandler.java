@@ -43,11 +43,8 @@ public class LoginHandler {
 	
     //Fall sem athugar hvort Login sé rétt	
     @RequestMapping(value="/Login", method=RequestMethod.POST)
-<<<<<<< HEAD
-    public String login (@RequestParam("loginInfo") List<String> params,ModelMap model) {
-=======
+
     public String login (@RequestParam("loginInfo") List<String> params, ModelMap model) {
->>>>>>> origin/master
     	String user = params.get(0);
     	String password = params.get(1);
     	ArrayList<Login> notendur = (ArrayList)loginService.allirNotendur();

@@ -26,10 +26,6 @@
 		margin-top: 25px;
 		margin-bottom: 25px;
 	}
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/master
 	.hiddendiv{
 		display:none;
 	}
@@ -56,11 +52,6 @@
 	.btn {
 		cursor: pointer;
 	}
-<<<<<<< HEAD
-=======
-
-
->>>>>>> origin/master
 </style>
 
 <body>
@@ -99,24 +90,13 @@
 					<hr>
 					<button type="submit" name="button" value="button5" class="btn">Start</button>
 				</div>
-<<<<<<< HEAD
 			</div>
 		</div>
 	   </div>
-=======
-			</div>
-		</div>
-		
-			</div>
->>>>>>> origin/master
 	</form>
 	<div class="hiddendiv">${i}</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 	<script>
 		var buttons = [];
 		buttons = document.querySelectorAll("button");
