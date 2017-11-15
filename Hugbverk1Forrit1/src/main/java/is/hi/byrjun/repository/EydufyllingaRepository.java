@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import is.hi.byrjun.model.Eydufyllingar;
+import is.hi.byrjun.model.Spurningar;
 
 @Repository
 public interface EydufyllingaRepository extends JpaRepository<Eydufyllingar, Long>{
@@ -14,4 +15,5 @@ public interface EydufyllingaRepository extends JpaRepository<Eydufyllingar, Lon
 	
 	List<Eydufyllingar> findAll();
 		
+	Eydufyllingar findById(int i);
 }

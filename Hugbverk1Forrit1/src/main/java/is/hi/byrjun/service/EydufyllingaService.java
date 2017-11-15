@@ -3,6 +3,7 @@ package is.hi.byrjun.service;
 import java.util.*;
 
 import is.hi.byrjun.model.Eydufyllingar;
+import is.hi.byrjun.model.Spurningar;
 
 public interface EydufyllingaService {
 
@@ -31,5 +32,7 @@ public interface EydufyllingaService {
       public Eydufyllingar save(Eydufyllingar eydufyllingar);
         
       public List<Eydufyllingar> finnaAlla3Stafi();
+      
+      public Eydufyllingar getbyId(int i);
              
 }

@@ -13,7 +13,7 @@ public class Eydufyllingar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	//breta
-	private Long id;
+	private int id;
 	private String spurningEydu;
 	private String svarmog1Eydu;
 	private String svarmog2Eydu;

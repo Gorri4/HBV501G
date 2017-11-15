@@ -26,6 +26,13 @@
 		margin-top: 25px;
 		margin-bottom: 25px;
 	}
+	.hiddendiv{
+		display:none;
+	}
+	
+	.disable{
+		background: rgb(245, 38, 38);
+	}
 
 	h1 {
 		text-align: center;
@@ -38,8 +45,12 @@
 		width: 250px;
 	}
 
+
 	.col-sm{
 		text-align: center;
+	 }
+	.btn {
+		cursor: pointer;
 	}
 
 </style>
@@ -53,12 +64,17 @@
 				<div class="block">
 					<h2 class="animate-top">Fruits</h2>
 					<hr>
-					<button type="submit" name="button" value="button1" class="btn btn-success">Start</button>
+					<button type="submit" name="button" value="button1" class="btn">Start</button>
 				</div>
 				<div class="block">
 					<h2 class="animate-top">Numbers</h2>
 					<hr>
-					<button type="submit" name="button" value="button2" class="btn btn-success">Start</button>
+					<button type="submit" name="button" value="button2" class="btn">Start</button>
+			  </div>
+			  <div class="block">
+					<h2 class="animate-top">Animals</h2>
+					<hr>
+					<button type="submit" name="button" value="button3" class="btn">Start</button>
 			  </div>
 			</div>
 		</div>
@@ -68,12 +84,12 @@
 				<div class="block">
 					<h2 class="animate-top">Nouns</h2>
 					<hr>
-					<button type="submit" name="button" value="button3" class="btn btn-success">Start</button>
+					<button type="submit" name="button" value="button4" class="btn">Start</button>
 				</div>
 				<div class="block">
 					<h2 class="animate-top">Verbs</h2>
 					<hr>
-					<button type="submit" name="button" value="button4" class="btn btn-success">Start</button>
+					<button type="submit" name="button" value="button5" class="btn">Start</button>
 				</div>
 			</div>
 		</div>
@@ -81,6 +97,38 @@
 
 	</div>
 	</form>
+	<div class="hiddendiv">${i}</div>
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script>
+		var buttons = [];
+		buttons = document.querySelectorAll("button");
+		var e = parseInt(document.querySelector(".hiddendiv").innerText);
+		console.log(e);
+		if(e < 13){
+			buttons[0].classList.add('btn-success');
+		}
+		if(e > 12){
+			buttons[0].classList.add('btn-success');
+			buttons[1].classList.add('btn-success');
+		}
+		if(e > 22){
+			buttons[0].classList.add('btn-success');
+			buttons[1].classList.add('btn-success');
+			buttons[2].classList.add('btn-success');
+		}
+		if(e > 31){
+			buttons[0].classList.add('btn-success');
+			buttons[1].classList.add('btn-success');
+			buttons[2].classList.add('btn-success');
+			buttons[3].classList.add('btn-success');
+		}
+		if(e > 52){
+			buttons[0].classList.add('btn-success');
+			buttons[1].classList.add('btn-success');
+			buttons[2].classList.add('btn-success');
+			buttons[3].classList.add('btn-success');
+			buttons[4].classList.add('btn-success');
+		}
+	</script>
 </body>

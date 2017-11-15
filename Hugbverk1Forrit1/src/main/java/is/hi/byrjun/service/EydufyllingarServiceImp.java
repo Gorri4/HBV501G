@@ -44,5 +44,11 @@ public class EydufyllingarServiceImp implements EydufyllingaService {
 		return null;
 	}
 
+	@Override
+	public Eydufyllingar getbyId(int i) {
+		// TODO Auto-generated method stub
+		return eydufyllingRepo.findById(i);
+	}
+
 }
 
